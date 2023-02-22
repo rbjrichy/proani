@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SimposioController;
 use App\Http\Controllers\ThemeProaniController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/** ejecutar comando artisan */
+
+Route::get('artisan-cammand', function(){
+    Artisan::call('storage:link');
+});
 
 Route::get('/', function () {
     return view('theme.proanisrl.index');
@@ -64,5 +70,9 @@ Route::group([
     Route::get('ktito', [ThemeProaniController::class, 'ktito'])->name('ktito');
     Route::get('ktito-detalle', [ThemeProaniController::class, 'ktitodetalle'])->name('ktito.detalle');
     Route::get('ganaderia', [ThemeProaniController::class, 'ganaderia'])->name('ganaderia');
+    Route::get('ganaderia-detalle', [ThemeProaniController::class, 'ganaderiadetalle'])->name('ganaderiadetalle');
     Route::get('peces', [ThemeProaniController::class, 'peces'])->name('peces');
+    Route::get('quienes-somos', [ThemeProaniController::class, 'quienes_somos'])->name('quienessomos');
+    Route::get('contacto', [ThemeProaniController::class, 'contacto'])->name('contacto');
+
 });

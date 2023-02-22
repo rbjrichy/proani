@@ -416,7 +416,7 @@ h1 {
 
 h2 {
   font-size: 3.6rem;
-  color: #f9b800;
+  color: rgb(249, 184, 0);
 }
 h2 span {
   color: #9e9e9e;
@@ -456,7 +456,6 @@ h3 {
   .nav-principal {
     flex-direction: row;
     justify-content: center;
-    gap: 2.5rem;
   }
 }
 .nav-principal a {
@@ -477,7 +476,6 @@ h3 {
 @media (min-width: 768px) {
   .nav-principal a:last-of-type {
     border-right: none;
-    padding-right: 0;
   }
 }
 .nav-principal a:hover {
@@ -760,10 +758,10 @@ h3 {
 }
 
 .ancla_sec:hover {
-  color: #f9b800;
+  color: rgb(249, 184, 0);
 }
 .ancla_sec.activo {
-  color: #f9b800;
+  color: rgb(249, 184, 0);
 }
 
 .reproductor {
@@ -881,7 +879,7 @@ h3 {
 }
 
 .bg-primario {
-  background-color: #f9b800;
+  background-color: rgb(249, 184, 0);
 }
 
 .bg-white {
@@ -910,6 +908,10 @@ h3 {
 
 .texto-white {
   color: white;
+}
+
+.txt-bold {
+  font-weight: bold;
 }
 
 /** botones para reproductor de video*/
@@ -1000,7 +1002,7 @@ h3 {
 .fondo_icon_event {
   width: 6rem;
   height: 6rem;
-  background-color: #f9b800;
+  background-color: rgb(249, 184, 0);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1028,7 +1030,7 @@ h3 {
   align-items: center;
 }
 .event-logo-texto p {
-  color: #f9b800;
+  color: rgb(249, 184, 0);
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: lighter;
@@ -1158,7 +1160,7 @@ h3 {
   fill: #000;
 }
 #btn-atras:hover {
-  fill: #f9b800;
+  fill: rgb(249, 184, 0);
 }
 
 .simposio-icon {
@@ -1371,7 +1373,7 @@ h3 {
 }
 
 .fondo-header-ganaderia {
-  background-image: url("../img/ganaderia/fondo_ganaderia.jpg");
+  background-image: url("../img/ganaderia/fondo_ganaderia.png");
 }
 
 .fondo-header-peces {
@@ -1383,6 +1385,24 @@ h3 {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 74%);
 }
 
+.header_animal_bovino {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  max-width: 120rem;
+  height: 60rem;
+}
+
+@media (min-width: 768px) {
+  .header_animal_bovino {
+    height: 90rem;
+  }
+}
+@media (min-width: 1024px) {
+  .header_animal_bovino {
+    height: 120rem;
+  }
+}
 .menu-producto {
   margin: 5rem auto;
 }
@@ -1459,7 +1479,11 @@ h3 {
 }
 
 .marcas-ganaderia {
-  margin: 10rem auto;
+  height: 40rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .contenido-marcas {
@@ -1499,13 +1523,73 @@ h3 {
 }
 
 .texto-ganaderia {
-  margin: 0 auto;
-  padding: 5rem 2.5rem;
+  margin: -30rem 2.5rem 0rem 2.5rem;
+}
+@media (min-width: 480px) {
+  .texto-ganaderia {
+    margin: -10rem 3.5rem 0rem 3.5rem;
+  }
 }
 @media (min-width: 768px) {
   .texto-ganaderia {
-    padding: 5rem 10rem;
+    margin: -15rem 5rem 0rem 5rem;
   }
+}
+@media (min-width: 1024px) {
+  .texto-ganaderia {
+    margin: -25rem 20rem 0rem 20rem;
+  }
+}
+
+.bg-panal {
+  background-image: url("../img/ganaderia/fondo_exagonos.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.logo_posicion_der {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+}
+.logo_posicion_der .fondo_icon_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10rem;
+  margin: 2.5rem 5rem 0rem 0rem;
+}
+.logo_posicion_der .fondo_icon_logo img {
+  height: 80%;
+}
+
+.bg-ganaderia-black {
+  background-image: url("../img/product-ganaderia/bg-ganaderia.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.header-detalle-producto-ganaderia {
+  padding: 2.5rem 0;
+}
+
+.header-contenido-detalle-producto {
+  height: 10rem;
+}
+.header-contenido-detalle-producto img {
+  max-height: 10rem;
+  margin: 0 auto;
+}
+
+.producto-slice-50 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.producto-slice-50 img {
+  width: 50%;
 }
 
 .principal-pez {
@@ -1551,6 +1635,11 @@ h3 {
 .tabla-descripcion img {
   width: 90%;
   margin: 0 auto;
+}
+
+.texto-peces {
+  margin-top: 0;
+  padding: 5rem;
 }
 
 .slider {
@@ -1612,7 +1701,7 @@ h3 {
 }
 
 .slider::-webkit-scrollbar-thumb {
-  background-color: #f9b800;
+  background-color: rgb(249, 184, 0);
   border-radius: 20px;
   border: 2px solid #f1f2f3;
 }
@@ -1797,6 +1886,64 @@ h3 {
   background-size: 90%;
 }
 
+/**header contacto*/
+.header-contenido-contacto {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .header-contenido-contacto {
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.redes-sociales {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 1.5rem 0rem;
+}
+
+@media (min-width: 768px) {
+  .redes-sociales {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 2.5rem 0rem 0rem 5rem;
+  }
+}
+.logo-somos-familia img {
+  height: 7.5rem;
+}
+
+.fondo_icon_header img {
+  height: 4rem;
+}
+
+@media (min-width: 768px) {
+  .somos-familia {
+    padding: 2.5rem 5rem 0rem 0rem;
+  }
+}
+.form-contacto h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .form-contacto h3 {
+    text-align: left;
+    font-size: 2rem;
+  }
+}
 .form-contacto {
   text-align: left;
   padding: 5rem;
@@ -1822,6 +1969,7 @@ h3 {
   .contenedor-ubicaciones {
     flex-direction: row;
     gap: 2.5rem;
+    justify-content: space-between;
   }
 }
 
@@ -1831,7 +1979,7 @@ h3 {
 .list-sucursales span, .sucursal-select span {
   font-size: 1.5Rem;
   text-transform: uppercase;
-  color: #f9b800;
+  color: rgb(249, 184, 0);
 }
 .list-sucursales dl, .sucursal-select dl {
   padding-left: 2rem;
@@ -1855,16 +2003,15 @@ h3 {
   margin-bottom: 0;
 }
 .formulario label {
-  text-transform: uppercase;
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 .formulario input:not([type=submit], [type=radio], [type=checkbox]),
 .formulario select {
   width: 100%;
   padding: 0.5rem;
-  border: 0.1rem solid #f9b800;
+  border: 0.1rem solid rgb(249, 184, 0);
   border-radius: 0.5rem;
 }
 
@@ -1873,14 +2020,21 @@ h3 {
 }
 
 .btn-enviar {
-  background-color: #f9b800;
+  background-color: rgb(249, 184, 0);
   color: #fff;
-  border: 0.1rem solid #f9b800;
+  border: 0.1rem solid rgb(249, 184, 0);
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
 }
 
+@media (min-width: 480px) {
+  .btn-enviar {
+    width: unset;
+  }
+}
 .center {
   display: flex;
   justify-content: center;
@@ -1894,12 +2048,16 @@ h3 {
   margin: 5rem 0;
 }
 
-.fondo-footer {
-  background-image: url(../img/contacto/fondo_foot.png);
-  height: 25rem;
+.bg-contacto {
+  background-image: url(../img/contacto/fondo-contacto.png);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: bottom;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .bg-contacto {
+    background-position: bottom;
+  }
 }
 
 .header-videos {
@@ -1967,7 +2125,7 @@ h3 {
   }
 }
 .contendor-formulario p {
-  color: #f9b800;
+  color: rgb(249, 184, 0);
 }
 
 .contenedor-fondo {
@@ -1981,5 +2139,294 @@ h3 {
   background-image: url("../img/alimentacion/foot-registro.png");
   background-repeat: no-repeat;
   height: 40rem;
+}
+
+.bg-nosotros {
+  background-image: url("../img/nosotros/bg-nosotros-full.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.proani-texto {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 900;
+  margin-top: 5rem;
+}
+.proani-texto .pro {
+  color: #f19c00;
+}
+.proani-texto .ani {
+  color: #fff;
+}
+
+@media (min-width: 480px) {
+  .proani-texto {
+    display: none;
+  }
+}
+.proani-letras img {
+  width: 70%;
+  margin: 0 auto;
+  padding: 5rem 2rem 30rem 2rem;
+  display: none;
+}
+@media (min-width: 480px) {
+  .proani-letras img {
+    padding: 5rem 2rem 45rem 2rem;
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .proani-letras img {
+    padding: 5rem 2rem 100rem 2rem;
+  }
+}
+
+.contenedor-nosotoros {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+@media (min-width: 480px) {
+  .contenedor-nosotoros {
+    grid-template-columns: 30% 70%;
+  }
+}
+@media (min-width: 768px) {
+  .contenedor-nosotoros {
+    grid-template-columns: 40% 60%;
+  }
+}
+.historia {
+  height: 150vh;
+  overflow-y: scroll;
+  margin: 2.5rem 0rem 50rem 2.5rem;
+  padding-right: 2.5rem;
+}
+@media (min-width: 768px) {
+  .historia .historia {
+    padding: 5rem;
+  }
+}
+
+.historia::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: #fff;
+}
+
+.historia::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 0.7rem;
+}
+
+.historia span {
+  font-size: 2.5rem;
+  display: inline;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+.historia h2 {
+  font-size: 2.5rem;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .historia span {
+    font-size: 4rem;
+    margin-right: 0.5rem;
+  }
+  .historia h2 {
+    font-size: 4rem;
+  }
+}
+.cuadro-historia {
+  margin-bottom: 5rem;
+}
+.cuadro-historia .titulo-historia {
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 900;
+  text-align: center;
+}
+.cuadro-historia .texto-historia {
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+  padding: 0 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .cuadro-historia .titulo-historia {
+    font-size: 7rem;
+  }
+}
+.cuadro-padre {
+  height: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 -2.5rem;
+}
+.cuadro-padre .linea-hijo-top {
+  width: 10%;
+  border-top: 2px solid #000;
+}
+.cuadro-padre .linea-hijo-bottom {
+  width: 10%;
+  border-bottom: 2px solid #000;
+}
+
+.historia p span {
+  font-size: 3rem;
+  color: #000;
+  line-height: 1;
+}
+
+.guia-gato {
+  padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  .guia-gato {
+    padding-top: 5rem;
+  }
+}
+.contenedor-gato {
+  display: grid;
+  grid-template-columns: 100%;
+}
+.contenedor-gato .content-gato {
+  margin-top: 5rem;
+}
+.contenedor-gato div:nth-of-type(1) {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .contenedor-gato {
+    grid-template-columns: 40% 60%;
+  }
+  .contenedor-gato div:nth-of-type(2) {
+    order: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .contenedor-gato {
+    grid-template-columns: 30% 70%;
+  }
+}
+.content-gato {
+  padding: 0 5rem;
+}
+
+.content-formulario {
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .content-formulario {
+    padding-left: 3rem;
+  }
+}
+.content-gato .logo img {
+  margin: 0 auto;
+  height: 10rem;
+}
+.content-gato .gato img {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/** tabla guia de alimentacion*/
+.contenedor-tabla-guia {
+  margin: 2rem 2rem 0 2rem;
+}
+.contenedor-tabla-guia label {
+  padding-bottom: 2.5rem;
+}
+.contenedor-tabla-guia table {
+  border: 1px solid;
+  width: 100%;
+  margin: 2.5rem auto 0;
+}
+
+@media (min-width: 768px) {
+  .contenedor-tabla-guia {
+    margin: 5rem 5rem 0 5rem;
+  }
+  .contenedor-tabla-guia table {
+    width: 70%;
+  }
+}
+.tabla-guia {
+  border-radius: 1em;
+  overflow: hidden;
+}
+.tabla-guia td {
+  padding: 1em;
+  border-bottom: 1px solid #000;
+}
+.tabla-guia tr:last-child td:last-child {
+  border-bottom: #fff;
+}
+
+.registro-mascota {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .registro-mascota {
+    padding: 5rem;
+  }
+}
+.d-bloque {
+  display: block;
+  width: 100%;
+}
+
+.campo-fila {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .campo-fila {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .campo-fila {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.formulario-registro label {
+  margin-bottom: 0.5rem;
+}
+.formulario-registro .campo {
+  margin-bottom: 2rem;
+}
+.formulario-registro .campo:last-of-type {
+  margin-bottom: 0;
+}
+.formulario-registro label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+.formulario-registro input:not([type=submit], [type=radio], [type=checkbox]),
+.formulario-registro select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0.1rem solid rgb(249, 184, 0);
+  border-radius: 0.5rem;
+}
+
+.titulo-guia {
+  color: rgb(249, 184, 0);
+  font-weight: bold;
 }
 /*# sourceMappingURL=app.css.map */

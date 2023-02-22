@@ -57,4 +57,18 @@ class ThemeProaniController extends Controller
     {
         return view('theme.proanisrl.pages.peces');
     }
+
+    public function quienes_somos()
+    {
+        return view('theme.proanisrl.pages.quienes_somos');
+    }
+
+    public function contacto()
+    {
+        return view('theme.proanisrl.pages.contacto');
+    }
+    public function ganaderiadetalle()
+    {
+        return view('theme.proanisrl.pages.ganaderia-detalle');
+    }
 }
