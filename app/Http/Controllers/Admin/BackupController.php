@@ -63,7 +63,7 @@ class BackupController extends Controller
             ini_set('max_execution_time', 300);
           // start the backup process
             Artisan::call('backup:run',[
-                '--only-db' => true,
+                '--only-db' => true
             ]);
         //   $output = Artisan::output();
         //   echo $output;

@@ -65,6 +65,7 @@
     $("#create-new-backup-button").click(function(e) {
         e.preventDefault();
         var create_backup_url = $(this).attr('href');
+        // console.log(create_backup_url);
         // Create a new instance of ladda for the specified button
         var l = Ladda.create( document.querySelector( '#create-new-backup-button' ) );
 
@@ -84,6 +85,7 @@
                       "_token": "{{ csrf_token() }}",
                       },
                 success: function(result) {
+                    // console.log(result);
                     l.setProgress( 0.9 );
                     // Show an alert with the result
                     if (result.indexOf('failed') >= 0) {
