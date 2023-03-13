@@ -646,6 +646,40 @@ h3 {
   }
 }
 
+.img-noshow {
+  display: none;
+}
+
+.img-header-logo img {
+  -webkit-animation: FadeIn 3s ease;
+          animation: FadeIn 3s ease;
+}
+
+@-webkit-keyframes FadeIn {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+  }
+  10% {
+    opacity: 1;
+    -webkit-filter: brightness(1) blur(5px);
+            filter: brightness(1) blur(5px);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+  }
+  10% {
+    opacity: 1;
+    -webkit-filter: brightness(1) blur(5px);
+            filter: brightness(1) blur(5px);
+  }
+}
 .alto-icono {
   height: 5rem;
   display: flex;
@@ -2103,6 +2137,11 @@ h3 {
 .contenedor-videos .fb-video {
   border-radius: 0.5rem;
   overflow: hidden;
+  max-height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .header-contenido-registro {

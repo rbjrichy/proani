@@ -23,8 +23,8 @@ $config = [
     <div class="card card-primary card-outline">
         <div class="card-body box-profile">
             <div class="col-12 text-center p-3">
-                @php
-                $image_url = "https://www.proanisrl.com/img/mascotas/default.png";
+            @php
+                $image_url = asset(Storage::url('mascotas/mascota.png'));
                 if (isset($mascota)) {
                     $image_url = asset(Storage::url('mascotas/'.$mascota->foto));
                 }

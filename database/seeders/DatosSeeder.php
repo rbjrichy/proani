@@ -30,5 +30,13 @@ class DatosSeeder extends Seeder
                 'valor' => $mes,
             ]);
         }
+
+        $especies = ['Canino', 'Gatuno', 'Avicola', 'Porcino', 'Vacuno', 'Equino', 'Piscicola'];
+        foreach ($especies as $especie) {
+            Dato::create([
+                'tipo' => 'especie',
+                'valor' => $especie,
+            ]);
+        }
     }
 }

@@ -16,17 +16,17 @@
       <div class="contacto-bloque">
           <div class="redes-sociales">
               <div class="fondo_icon_header">
-                  <a href="#">
+                  <a href="https://es-la.facebook.com/proanisrl/">
                     <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/facebook_cir.png')}}" alt="redes sociales">
                   </a>
                 </div>
                 <div class="fondo_icon_header">
-                  <a href="#">
-                    <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/Instagram_cir.png')}}" alt="redes sociales">
+                  <a href="https://www.instagram.com/proanisrl/?hl=es">
+                    <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/instagram_cir.png')}}" alt="redes sociales">
                   </a>
                 </div>
                 <div class="fondo_icon_header">
-                  <a href="#">
+                  <a href="https://www.youtube.com/channel/UC2ievPPA6SdEGvCEE_GfYkg">
                     <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/youtube_cir.png')}}" alt="redes sociales">
                   </a>
                 </div>
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-  </header>
+</header>
 <div class="contenedor bg-white bg-contacto">
     <main class="contenedor text-center">
     <section class="form-contacto">

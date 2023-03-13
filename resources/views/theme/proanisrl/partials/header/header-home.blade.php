@@ -6,8 +6,9 @@
       <div class="img-header">
         <img src="theme/proanisrl/img/banner/imagen_2.jpg" alt="Galeria header" />
       </div>
-      <div class="img-header">
-        <img src="theme/proanisrl/img/banner/logo_menores.png" alt="Galeria header" />
+      <div class="img-header img-header-logo">
+        <img class="img-show" src="{{asset('theme/proanisrl/img/banner/logo_menores.png')}}" alt="Galeria header" />
+        <img class="img-noshow" src="{{asset('theme/proanisrl/img/banner/logo_mayores.png')}}" alt="Galeria header" />
       </div>
       <div class="img-header">
         <img src="theme/proanisrl/img/banner/imagen_4.jpg" alt="Galeria header" />

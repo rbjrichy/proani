@@ -1,12 +1,18 @@
 @extends('theme.proanisrl.master')
 
 @section('title', 'Videos')
-@section('classes_body')
-    {{'bg-patitas'}}
-@endsection
-@section('body')
 
-@include('theme.proanisrl.partials.nav.menu-animal')
+@section('body')
+<header class="contenedor">
+    <div class="header-videos">
+      <a href="./">
+        <img src="{{asset('theme/proanisrl/img/logo_proani.avif')}}" alt="icon actividades simposios">
+      </a>
+    </div>
+    <section>
+        @include('theme.proanisrl.partials.nav.menu-animal')
+  </section>
+  </header>
 
       <main class="contenedor text-center bg-white">
           <section class="videos">
@@ -41,6 +47,9 @@
                       data-width="320"
                       data-allowfullscreen="true"
                       data-lazy="true">
+                  </div>
+                  <div class="fb-video">
+                    <div class="fb-video" data-href="https://www.facebook.com/proanisrl/videos/3526748084038560/" data-width="320" data-show-text="true"><blockquote cite="https://www.facebook.com/proanisrl/videos/3526748084038560/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/proanisrl/videos/3526748084038560/">KNINO TERAPIA</a>
                   </div>
               </div>
           </section>

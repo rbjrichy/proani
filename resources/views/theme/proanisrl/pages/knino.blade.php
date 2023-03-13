@@ -17,17 +17,21 @@
                     <img src="theme/proanisrl/img/knino/img_central.png" alt="imagen central">
                 </div>
             </main>
+
             <section class="productos">
-                <div class="caja-producto">
-                    <div class="producto">
-                        <img id="drago" src="theme/proanisrl/img/knino/drago.png" alt="imagen producto">
+                @foreach ($productos as $producto)
+                    <div class="caja-producto">
+                        <div class="producto">
+                            <img id="{{$producto->nombre_producto}}{{$producto->id}}" src="{{asset('storage/'.str_replace('public/','',$producto->img_producto))}}" alt="imagen producto">
+                        </div>
+                        <div class="btn-producto">
+                            <a href="{{route('knino.detalle')}}">
+                                <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
+                            </a>
+                        </div>
                     </div>
-                    <div class="btn-producto">
-                        <a href="{{route('knino.detalle')}}">
-                            <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
-                        </a>
-                    </div>
-                </div>
+                @endforeach
+
                 <div class="caja-producto">
                     <div class="producto">
                         <img id="adulto" src="theme/proanisrl/img/knino/adulto.png" alt="imagen producto">

@@ -254,7 +254,7 @@ return [
         ],
         [
             'text'        => 'Macotas',
-            'url'         => 'user/profile',
+            'route'         => 'mascota.index',
             'icon'        => 'far fa-fw fa-file',
             'can'         => 'paginas.cliente',
         ],
@@ -275,6 +275,18 @@ return [
             'icon'    => 'fas fa-user-cog',
             'can'     =>  'ver.menu.admin',
             'submenu' => [
+                [
+                    'text' => 'Categorias',
+                    'route'  => 'admin.catergoria.producto.index',
+                    'icon' => 'fas fa-fw fa-user',
+                    'can' => 'admin.user.index'
+                ],
+                [
+                    'text' => 'Productos',
+                    'route'  => 'admin.producto.index',
+                    'icon' => 'fas fa-fw fa-user',
+                    'can' => 'admin.user.index'
+                ],
                 [
                     'text' => 'usuarios',
                     'route'  => 'admin.user.index',
@@ -499,5 +511,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

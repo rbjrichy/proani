@@ -3,17 +3,17 @@
         <div class="icon_footer">
             <div class="fondo_icon_footer">
                 <a target="_blank" href="https://es-la.facebook.com/proanisrl/">
-                    <img class="btn-icon" src="theme/proanisrl/img/social_media/facebook_cir.png" alt="footer">
+                    <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/facebook_cir.png')}}" alt="footer">
                 </a>
             </div>
             <div class="fondo_icon_footer">
                 <a target="_blank" href="https://www.instagram.com/proanisrl/?hl=es">
-                    <img class="btn-icon" src="theme/proanisrl/img/social_media/instagram_cir.png" alt="footer">
+                    <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/instagram_cir.png')}}" alt="footer">
                 </a>
             </div>
             <div class="fondo_icon_footer">
                 <a target="_blank" href="https://www.youtube.com/channel/UC2ievPPA6SdEGvCEE_GfYkg">
-                    <img class="btn-icon" src="theme/proanisrl/img/social_media/youtube_cir.png" alt="footer">
+                    <img class="btn-icon" src="{{asset('theme/proanisrl/img/social_media/youtube_cir.png')}}" alt="footer">
                 </a>
             </div>
         </div>

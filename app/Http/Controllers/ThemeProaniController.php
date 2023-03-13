@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaProducto;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ThemeProaniController extends Controller
@@ -32,7 +34,9 @@ class ThemeProaniController extends Controller
 
     public function knino()
     {
-        return view('theme.proanisrl.pages.knino');
+        $categoria = CategoriaProducto::where('especie','canino')->first();
+        $productos = $categoria->productos;
+        return view('theme.proanisrl.pages.knino')->with(compact('productos'));
     }
 
     public function kninodetalle()
@@ -70,5 +74,9 @@ class ThemeProaniController extends Controller
     public function ganaderiadetalle()
     {
         return view('theme.proanisrl.pages.ganaderia-detalle');
+    }
+    public function guia_alimentaria()
+    {
+        return view('theme.proanisrl.pages.guia-alimentaria');
     }
 }

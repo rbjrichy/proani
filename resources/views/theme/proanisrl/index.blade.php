@@ -32,9 +32,31 @@
 @section('custom_js')
 <script src="{{asset('theme/proanisrl/js/video.js')}}"></script>
 <script>
-    // $(document).ready(function(){
-    //     $("#contacto").trigger('click');
-    //     console.log('cliente en contacto');
-    // })
+    var bandera = true ;
+    setInterval(function(){
+        if(bandera){
+            var images1 = document.getElementsByClassName("img-noshow");
+            this.cambiar_attributo(images1," block")
+            var images2 = document.getElementsByClassName("img-show");
+            this.cambiar_attributo(images2, "none")
+            bandera = false;
+        }
+        else {
+            var images1 = document.getElementsByClassName("img-noshow");
+            this.cambiar_attributo(images1, "none")
+            var images2 = document.getElementsByClassName("img-show");
+            this.cambiar_attributo(images2, "block")
+            bandera = true;
+        }
+        console.log(bandera);
+    }, 6000);
+
+    function cambiar_attributo(listaObjetos, estado){
+        for (let nodo of listaObjetos){
+            console.log(nodo)
+            nodo.style.display = estado;
+        }
+    }
+
 </script>
 @endsection

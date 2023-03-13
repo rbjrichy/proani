@@ -44,6 +44,8 @@
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
 
+    @livewireStyles
+
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data') id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
@@ -53,6 +55,8 @@
 
     {{-- Custom Scripts --}}
     @yield('custom_js')
+
+    @livewireScripts
 
 </body>
 

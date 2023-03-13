@@ -15,7 +15,7 @@
     {{-- Title --}}
     <title>
         @yield('title_prefix', config('adminlte.title_prefix', ''))
-        @yield('title', config('adminlte.title', 'AdminLTE 3'))
+        @yield('title', config('adminlte.title', 'Rbjrichy'))
         @yield('title_postfix', config('adminlte.title_postfix', ''))
     </title>
 
@@ -70,7 +70,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
-
+    {{-- @livewireStyles --}}
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>

@@ -74,8 +74,9 @@ Route::group([
     Route::get('peces', [ThemeProaniController::class, 'peces'])->name('peces');
     Route::get('quienes-somos', [ThemeProaniController::class, 'quienes_somos'])->name('quienessomos');
     Route::get('contacto', [ThemeProaniController::class, 'contacto'])->name('contacto');
+    Route::get('guia/alimentaria', [ThemeProaniController::class, 'guia_alimentaria'])->name('guia_alimentaria');
 
 });
-//dmfMoJ3irPn1PjlZ2i7AXvzGxWHcGmr92Pke9D7q
-//dmfMoJ3irPn1PjlZ2i7AXvzGxWHcGmr92Pke9D7q
-//login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d
+
+//Route Hooks - Do not delete//
+
