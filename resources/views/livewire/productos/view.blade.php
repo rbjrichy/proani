@@ -49,9 +49,11 @@
                                     </div>
                                 </td>
 								<td>
-                                    <div class="col-12 text-center p-3">
-                                        <img class="profile-user-img img-fluid" src="{{asset(Storage::url($row->img_datos))}}" alt="datos nutricionales" id="img-foto">
-                                    </div>
+                                    @if ($row->img_datos != '')
+                                        <div class="col-12 text-center p-3">
+                                            <img class="profile-user-img img-fluid" src="{{asset(Storage::url($row->img_datos))}}" alt="datos nutricionales" id="img-foto">
+                                        </div>
+                                    @endif
                                 </td>
 								<td>{{ $row->categoria_id }}</td>
 								<td width="90">

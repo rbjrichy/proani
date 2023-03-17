@@ -23,36 +23,18 @@
   </main>
   <section class="marcas-ganaderia bg-panal contenedor">
     <div class="contenido-marcas">
+        @foreach ($categorias as $categoria)
         <div class="marcas">
             <div class="marca-producto">
-                <img src="{{asset('theme/proanisrl/img/ganaderia/logo_ganaderia1.png')}}" alt="Ganaderia links">
+                <img src="{{asset('storage/'.str_replace('public/','',$categoria->logo))}}" alt="logo marcas ganaderia">
             </div>
             <div class="btn-masinfo">
-              <a href="{{route('ganaderiadetalle')}}">
+              <a href="{{route('ganaderiadetalle',[$categoria])}}">
                 <img class="btn-icon" src="{{asset('theme/proanisrl/img/ganaderia/boton_mas_info.png')}}" alt="mas informacion">
               </a>
             </div>
         </div>
-        <div class="marcas">
-            <div class="marca-producto">
-                <img src="{{asset('theme/proanisrl/img/ganaderia/logo_ganaderia2.png')}}" alt="Ganaderia links">
-            </div>
-            <div class="btn-masinfo">
-              <a href="{{route('ganaderiadetalle')}}">
-                <img class="btn-icon" src="{{asset('theme/proanisrl/img/ganaderia/boton_mas_info.png')}}" alt="mas informacion">
-              </a>
-            </div>
-        </div>
-        <div class="marcas">
-            <div class="marca-producto">
-                <img src="{{asset('theme/proanisrl/img/ganaderia/logo_ganaderia3.png')}}" alt="Ganaderia links">
-            </div>
-            <div class="btn-masinfo">
-              <a href="{{route('ganaderiadetalle')}}">
-                <img class="btn-icon" src="{{asset('theme/proanisrl/img/ganaderia/boton_mas_info.png')}}" alt="mas informacion">
-              </a>
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
 <div class="contenedor contenedor-btn">

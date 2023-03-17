@@ -66,11 +66,11 @@ Route::group([
     Route::get('voluntariado', [ThemeProaniController::class, 'voluntariado'])->name('voluntariado');
     Route::get('videos', [ThemeProaniController::class, 'videos'])->name('videos');
     Route::get('knino', [ThemeProaniController::class, 'knino'])->name('knino');
-    Route::get('knino-detalle', [ThemeProaniController::class, 'kninodetalle'])->name('knino.detalle');
+    Route::get('knino-detalle/{producto}', [ThemeProaniController::class, 'kninodetalle'])->name('knino.detalle');
     Route::get('ktito', [ThemeProaniController::class, 'ktito'])->name('ktito');
-    Route::get('ktito-detalle', [ThemeProaniController::class, 'ktitodetalle'])->name('ktito.detalle');
+    Route::get('ktito-detalle/{producto}', [ThemeProaniController::class, 'ktitodetalle'])->name('ktito.detalle');
     Route::get('ganaderia', [ThemeProaniController::class, 'ganaderia'])->name('ganaderia');
-    Route::get('ganaderia-detalle', [ThemeProaniController::class, 'ganaderiadetalle'])->name('ganaderiadetalle');
+    Route::get('ganaderia/detalle/{categoria}', [ThemeProaniController::class, 'ganaderiadetalle'])->name('ganaderiadetalle');
     Route::get('peces', [ThemeProaniController::class, 'peces'])->name('peces');
     Route::get('quienes-somos', [ThemeProaniController::class, 'quienes_somos'])->name('quienessomos');
     Route::get('contacto', [ThemeProaniController::class, 'contacto'])->name('contacto');

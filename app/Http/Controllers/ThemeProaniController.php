@@ -39,23 +39,28 @@ class ThemeProaniController extends Controller
         return view('theme.proanisrl.pages.knino')->with(compact('productos'));
     }
 
-    public function kninodetalle()
+    public function kninodetalle($producto)
     {
-        return view('theme.proanisrl.pages.knino-detalle');
+        $producto = Producto::FindOrFail($producto);
+        return view('theme.proanisrl.pages.knino-detalle')->with(compact('producto'));
     }
     public function ktito()
     {
-        return view('theme.proanisrl.pages.ktito');
+        $categoria = CategoriaProducto::where('especie','gatuno')->first();
+        $productos = $categoria->productos;
+        return view('theme.proanisrl.pages.ktito')->with(compact('productos'));
     }
 
-    public function ktitodetalle()
+    public function ktitodetalle($producto)
     {
-        return view('theme.proanisrl.pages.ktito-detalle');
+        $producto = Producto::FindOrFail($producto);
+        return view('theme.proanisrl.pages.ktito-detalle')->with(compact('productos'));
     }
 
     public function ganaderia()
     {
-        return view('theme.proanisrl.pages.ganaderia');
+        $categorias = CategoriaProducto::where('especie','Vacuno')->get();
+        return view('theme.proanisrl.pages.ganaderia')->with(compact('categorias'));
     }
     public function peces()
     {
@@ -71,9 +76,11 @@ class ThemeProaniController extends Controller
     {
         return view('theme.proanisrl.pages.contacto');
     }
-    public function ganaderiadetalle()
+    public function ganaderiadetalle($categoria)
     {
-        return view('theme.proanisrl.pages.ganaderia-detalle');
+        $categoria = CategoriaProducto::FindOrFail($categoria);
+        $producto = $categoria->productos()->first();
+        return view('theme.proanisrl.pages.ganaderia-detalle')->with(compact('producto'));
     }
     public function guia_alimentaria()
     {

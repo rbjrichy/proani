@@ -53,6 +53,24 @@ class Productos extends Component
         $this->resetInput();
         $this->updateMode = false;
     }
+    private function ressetDatos()
+    {
+        $this->reset(
+            [
+                'selected_id',
+                'keyWord',
+                'nombre_producto',
+                'descripcion',
+                'img_datos',
+                'img_producto',
+                'categoria_id',
+                'img_datos_edit',
+                'img_producto_edit',
+                'new_image_prod',
+                'new_image_datos'
+            ]
+            );
+    }
 
     private function resetInput()
     {
@@ -95,7 +113,10 @@ class Productos extends Component
 		'img_producto' => 'required',
 		'categoria_id' => 'required|min:1',
         ]);
-        $nombre_img_datos = $this->guardarImg($this->img_datos, 'productos');
+        $nombre_img_datos = $nombre_img_producto = '';
+        if(isset($this->img_datos)){
+            $nombre_img_datos = $this->guardarImg($this->img_datos, 'productos');
+        }
         $nombre_img_producto = $this->guardarImg($this->img_producto, 'productos');
         Producto::create([
 			'nombre_producto' => $this-> nombre_producto,
@@ -105,7 +126,9 @@ class Productos extends Component
 			'categoria_id' => $this-> categoria_id
         ]);
 
-        $this->resetInput();
+        // $this->resetInput();
+        // $this->resetInputImage();
+        $this->ressetDatos();
         $this->identificador = rand();
 		$this->emit('closeModal');
 		session()->flash('message', 'Producto creado correctamente.');
@@ -154,8 +177,9 @@ class Productos extends Component
 			'categoria_id' => $this-> categoria_id
             ]);
 
-            $this->resetInput();
-            $this->resetInputImage();
+            // $this->resetInput();
+            // $this->resetInputImage();
+            $this->ressetDatos();
             $this->identificador = rand();
             $this->updateMode = false;
 			session()->flash('message', 'Producto actualizado correctamente.');

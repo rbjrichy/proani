@@ -25,25 +25,9 @@
       </p>
     </main>
     <section class="seccion-producto">
-      <div class="detalle-producto">
-        <div class="flechaizq-slice">
-          <img
-            class="imgflechaizq"
-            src="{{asset('theme/proanisrl/img/asset-comun/flechaizq.png')}}"
-            alt="flecha izq"
-          />
-        </div>
-        <div class="producto-slice-50">
-          <img src="{{asset('theme/proanisrl/img/product-ganaderia/cacimin.png')}}" alt="producto" />
-        </div>
-        <div class="flechader-slice">
-          <img
-            class="imgflechader"
-            src="{{asset('theme/proanisrl/img/asset-comun/flechaizq.png')}}"
-            alt="flecha der"
-          />
-        </div>
-      </div>
+        @if (isset($producto))
+            @livewire('carrusel-producto', ['producto' =>$producto])
+        @endif
     </section>
 
     <div class="contenedor contenedor-btn">

@@ -25,10 +25,7 @@
                     Espere un momento hasta que la imagen se haya procesado.
                 </div>
                 <div class="col-12 text-center p-3">
-                    @if ($logo)
-                    {{-- @php
-                        dd($logo);
-                    @endphp --}}
+                    @if ($logo!=null)
                         <img class="profile-user-img img-fluid" src="{{$logo->temporaryUrl()}}" alt="Logo marca producto" id="img-foto">
                     @endif
                 </div>

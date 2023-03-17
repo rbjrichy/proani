@@ -20,74 +20,18 @@
               </div>
             </main>
             <section class="productos">
-              <div class="caja-producto">
-                <div class="producto">
-                  <img
-                    src="{{asset('theme/proanisrl/img/ktito/ktito-cachorro.png')}}"
-                    alt="imagen producto"
-                  />
-                </div>
-                <div class="btn-producto">
-                  <a href="{{route('ktito.detalle')}}">
-                    <img
-                      class="btn-descarga"
-                      src="{{asset('theme/proanisrl/img/knino/btn.png')}}"
-                      alt="boton descarga"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div class="caja-producto">
-                <div class="producto">
-                  <img
-                    src="{{asset('theme/proanisrl/img/ktito/ktito-adulto-salmon.png')}}"
-                    alt="imagen producto"
-                  />
-                </div>
-                <div class="btn-producto">
-                  <a href="{{route('ktito.detalle')}}">
-                    <img
-                      class="btn-descarga"
-                      src="{{asset('theme/proanisrl/img/knino/btn.png')}}"
-                      alt="boton descarga"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div class="caja-producto">
-                <div class="producto">
-                  <img
-                    src="{{asset('theme/proanisrl/img/ktito/ktito-adulto-leche.png')}}"
-                    alt="imagen producto"
-                  />
-                </div>
-                <div class="btn-producto">
-                  <a href="{{route('ktito.detalle')}}">
-                    <img
-                      class="btn-descarga"
-                      src="{{asset('theme/proanisrl/img/knino/btn.png')}}"
-                      alt="boton descarga"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div class="caja-producto">
-                <div class="producto">
-                  <img
-                    src="{{asset('theme/proanisrl/img/ktito/ktito-adulto-carne.png')}}"
-                    alt="imagen producto"
-                  />
-                </div>
-                <div class="btn-producto">
-                  <a href="{{route('ktito.detalle')}}">
-                    <img
-                      class="btn-descarga"
-                      src="{{asset('theme/proanisrl/img/knino/btn.png')}}"
-                      alt="boton descarga"
-                    />
-                  </a>
-                </div>
-              </div>
+                @foreach ($productos as $producto)
+                    <div class="caja-producto">
+                        <div class="producto">
+                            <img id="{{$producto->nombre_producto}}{{$producto->id}}" src="{{asset('storage/'.str_replace('public/','',$producto->img_producto))}}" alt="imagen producto">
+                        </div>
+                        <div class="btn-producto">
+                            <a href="{{route('ktito.detalle',[$producto])}}">
+                                <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
             </section>
 
             <footer class="footer">

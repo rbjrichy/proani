@@ -44,6 +44,19 @@ class CategoriaProductos extends Component
         $this->updateMode = false;
     }
 
+
+    private function resetDatos()
+    {
+        $this->reset([
+            'selected_id',
+            'keyWord',
+            'marca',
+            'especie',
+            'logo',
+            'new_image',
+            'old_logo',
+        ]);
+    }
     private function resetInput()
     {
 		$this->marca = null;
@@ -88,7 +101,8 @@ class CategoriaProductos extends Component
 			'logo' => $nombreImg
         ]);
 
-        $this->resetInput();
+        $this->resetDatos();
+        $this->reset('logo');
         $this->identificador = rand();
 		$this->emit('closeModal');
 		session()->flash('message', 'Categoria Producto creado satisfactoriamente.');
@@ -129,8 +143,7 @@ class CategoriaProductos extends Component
 			'logo' => $nombreImg
             ]);
 
-            $this->resetInput();
-            $this->resetInputEdit();
+            $this->resetDatos();
             $this->updateMode = false;
             $this->identificador = rand();
             $this->emit('closeModal');

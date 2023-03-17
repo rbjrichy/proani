@@ -25,49 +25,12 @@
                             <img id="{{$producto->nombre_producto}}{{$producto->id}}" src="{{asset('storage/'.str_replace('public/','',$producto->img_producto))}}" alt="imagen producto">
                         </div>
                         <div class="btn-producto">
-                            <a href="{{route('knino.detalle')}}">
+                            <a href="{{route('knino.detalle',[$producto])}}">
                                 <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
                             </a>
                         </div>
                     </div>
                 @endforeach
-
-                <div class="caja-producto">
-                    <div class="producto">
-                        <img id="adulto" src="theme/proanisrl/img/knino/adulto.png" alt="imagen producto">
-                    </div>
-                    <div class="btn-producto">
-
-                        <a href="{{route('knino.detalle')}}">
-                            <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
-                        </a>
-
-                    </div>
-                </div>
-                <div class="caja-producto">
-                    <div class="producto">
-                        <img id="cachorro" src="theme/proanisrl/img/knino/cachorro.png" alt="imagen producto">
-                    </div>
-                    <div class="btn-producto">
-
-                        <a href="{{route('knino.detalle')}}">
-                            <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
-                        </a>
-
-                    </div>
-                </div>
-                <div class="caja-producto">
-                    <div class="producto">
-                        <img id="knino" src="theme/proanisrl/img/knino/knino.png" alt="imagen producto">
-                    </div>
-                    <div class="btn-producto">
-
-                        <a href="{{route('knino.detalle')}}">
-                            <img class="btn-descarga" src="theme/proanisrl/img/knino/btn.png" alt="boton descarga">
-                        </a>
-
-                    </div>
-                </div>
             </section>
 
             <footer class="footer">
