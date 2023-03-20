@@ -23,14 +23,13 @@ class Productos extends Component
     {
         $this->identificador = rand();
         $this->categorias = CategoriaProducto::all()->pluck('marca', 'id');
-        $this->categorias->prepend('Seleccione Categoria');
     }
 
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
         return view('livewire.productos.view', [
-            'productos' => Producto::latest()
+            'productos' => Producto::with('categoria')->latest()
 						->orWhere('nombre_producto', 'LIKE', $keyWord)
 						->orWhere('descripcion', 'LIKE', $keyWord)
 						->orWhere('img_datos', 'LIKE', $keyWord)

@@ -11,7 +11,9 @@
           <div class="mas-info">
 
           </div>
-          <img src="{{asset('theme/proanisrl/img/logo_proani.avif')}}" alt="icon actividades">
+          <a href="{{asset('/')}}">
+              <img src="{{asset('theme/proanisrl/img/logo_proani.avif')}}" alt="icon actividades">
+          </a>
         </div>
       </div>
     </div>

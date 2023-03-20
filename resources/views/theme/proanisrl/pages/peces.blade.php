@@ -7,7 +7,7 @@
 <header class="header_animal fondo-header-peces contenedor">
     <div class="header-contenido">
       <div class="logo_proani">
-        <a href="./">
+        <a href="{{asset('/')}}">
           <img src="{{asset('theme/proanisrl/img/logo_proani.avif')}}" alt="logo lideres en nutricion animal">
         </a>
       </div>
@@ -17,10 +17,16 @@
   <main class="contenedor text-center bg-white">
     <p class="texto-peces">Alimento balanceado extruido para peces. Está formulado estrictamente para cubrir  los requerimientos nutricionales en sus distintas fases de producción. El proceso de extrusión  rompe las cadenas largas de almidones y las convierte en un producto de mejor digestión  y asimilación, haciendo el alimento de mayor conversión alimenticia.</p>
     <section class="seccion-producto">
-      <div class="detalle-producto">
+        @if (isset($producto))
+        @php
+            $ruta_flecha = 'theme/proanisrl/img/asset-comun/flecha_borde.png';
+        @endphp
+            @livewire('carrusel-producto', ['producto' =>$producto, 'ruta_flecha'=>$ruta_flecha])
+        @endif
+      {{-- <div class="detalle-producto">
         <div class="flechaizq-slice">
           <img
-            class="imgflechaizq"
+            class="imgflechaizq btn-icon"
             src="{{asset('theme/proanisrl/img/asset-comun/flecha_borde.png')}}"
             alt="flecha izq"
           />
@@ -30,12 +36,12 @@
         </div>
         <div class="flechader-slice">
           <img
-            class="imgflechader"
+            class="imgflechader btn-icon"
             src="{{asset('theme/proanisrl/img/asset-comun/flecha_borde.png')}}"
             alt="flecha der"
           />
         </div>
-      </div>
+      </div> --}}
     </section>
 
     <div class="contenedor">

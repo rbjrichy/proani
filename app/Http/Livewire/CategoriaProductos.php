@@ -73,18 +73,17 @@ class CategoriaProductos extends Component
     public function guardarImg($file, $carpeta)
     {
         $fecha = new \Carbon\Carbon();
-        $name_img = $fecha->format('dmy_hms');
+        $name_img = $fecha->format('dmy_hms').rand();
         $ext_image = $file->extension();
         return $file->storeAs("public/".$carpeta,$name_img.'.'.$ext_image);
     }
     public function borrarImagen($ruta_name)
     {
+        $ruta_name = str_replace('public/','',$ruta_name);
         $destination = public_path('storage\\'.$ruta_name);
-        // dd($destination);
         if(File::exists($destination)){
             session()->flash('message', 'Archivo Borrado.');
             File::delete($destination);
-            // Storage::delete('public/'.$ruta_name);
         }
     }
     public function store()

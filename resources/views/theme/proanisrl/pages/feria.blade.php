@@ -19,63 +19,29 @@
     <main class="contenedor">
         <section class="all-ferias">
             <div class="feria-contenedor">
+                @foreach ($ferias as $row)
                 <div class="card-feria">
                     <div class="imagen">
                       <div class="marco-img fig-oval">
-                        <img src="{{asset('theme/proanisrl/img/ferias/foto-feria.png')}}" alt="imagen ferias">
+                        <img src="{{asset(Storage::url($row->foto_evento))}}" alt="imagen ferias">
                       </div>
                       <div class="img-text img-text-rotar">
                         <div class="contenedor-img-texto">
                           <img src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen ferias">
-                          <p class="tit-feria">Feria 1</p>
+                          <p class="tit-feria">{{$row->titulo}}</p>
                         </div>
                       </div>
                     </div>
                     <div class="texto">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora excepturi porro temporibus ipsam, facilis id eius cum laudantium autem quaerat, veniam quia, error impedit. Placeat cumque inventore facere nulla assumenda.</span>
+                        <span>
+                            {{$row->descripcion}}
+                        </span>
                     </div>
                     <div class="boton btn-vermas">
                         <img class="btn-icon" src="{{asset('theme/proanisrl/img/ferias/ver_mas.png')}}" alt="imagen boton mas info">
                     </div>
                 </div>
-                <div class="card-feria">
-                    <div class="imagen">
-                      <div class="marco-img fig-oval">
-                        <img src="{{asset('theme/proanisrl/img/ferias/foto-feria.png')}}" alt="imagen ferias">
-                      </div>
-                      <div class="img-text img-text-rotar">
-                        <div class="contenedor-img-texto">
-                          <img src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen ferias">
-                          <p class="tit-feria">Feria 2</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="texto">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora excepturi porro temporibus ipsam, facilis id eius cum laudantium autem quaerat, veniam quia, error impedit. Placeat cumque inventore facere nulla assumenda.</span>
-                    </div>
-                    <div class="boton btn-vermas">
-                        <img class="btn-icon" src="{{asset('theme/proanisrl/img/ferias/ver_mas.png')}}" alt="imagen boton mas info">
-                    </div>
-                </div>
-                <div class="card-feria">
-                    <div class="imagen">
-                      <div class="marco-img fig-oval">
-                        <img src="{{asset('theme/proanisrl/img/ferias/foto-feria.png')}}" alt="imagen ferias">
-                      </div>
-                      <div class="img-text img-text-rotar">
-                        <div class="contenedor-img-texto">
-                          <img src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen ferias">
-                          <p class="tit-feria">Feria 3</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="texto">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora excepturi porro temporibus ipsam, facilis id eius cum laudantium autem quaerat, veniam quia, error impedit. Placeat cumque inventore facere nulla assumenda.</span>
-                    </div>
-                    <div class="boton btn-vermas">
-                        <img class="btn-icon" src="{{asset('theme/proanisrl/img/ferias/ver_mas.png')}}" alt="imagen boton mas info">
-                    </div>
-                </div>
+                @endforeach
             </div>
         </section>
         <!-- Start footer -->

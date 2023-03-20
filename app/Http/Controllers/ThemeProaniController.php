@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriaProducto;
+use App\Models\Evento;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -10,22 +11,26 @@ class ThemeProaniController extends Controller
 {
     public function simposios()
     {
-        return view('theme.proanisrl.pages.simposio');
+        $simposios = Evento::where('tipo_evento','Simposios')->get();
+        return view('theme.proanisrl.pages.simposio')->with(compact('simposios'));
     }
 
     public function ferias()
     {
-        return view('theme.proanisrl.pages.feria');
+        $ferias = Evento::where('tipo_evento','Ferias')->get();
+        return view('theme.proanisrl.pages.feria')->with(compact('ferias'));
     }
 
     public function adopcion()
     {
-        return view('theme.proanisrl.pages.adopciones');
+        $adopciones = Evento::where('tipo_evento','Adopciones')->get();
+        return view('theme.proanisrl.pages.adopciones')->with(compact('adopciones'));
     }
 
     public function voluntariado()
     {
-        return view('theme.proanisrl.pages.voluntariado');
+        $voluntariados = Evento::where('tipo_evento','Voluntariado')->get();
+        return view('theme.proanisrl.pages.voluntariado')->with(compact('voluntariados'));
     }
     public function videos()
     {
@@ -54,7 +59,7 @@ class ThemeProaniController extends Controller
     public function ktitodetalle($producto)
     {
         $producto = Producto::FindOrFail($producto);
-        return view('theme.proanisrl.pages.ktito-detalle')->with(compact('productos'));
+        return view('theme.proanisrl.pages.ktito-detalle')->with(compact('producto'));
     }
 
     public function ganaderia()
@@ -64,7 +69,11 @@ class ThemeProaniController extends Controller
     }
     public function peces()
     {
-        return view('theme.proanisrl.pages.peces');
+        $categoria = CategoriaProducto::where('especie','Piscicola')->first();
+        // dd($categoria);
+        $producto = $categoria->productos()->first();
+        // dd($producto);
+        return view('theme.proanisrl.pages.peces')->with(compact('producto'));
     }
 
     public function quienes_somos()

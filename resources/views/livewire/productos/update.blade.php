@@ -13,7 +13,7 @@
 					<input type="hidden" wire:model="selected_id">
             <div class="form-group">
                 <label for="categoria_id"></label>
-                {!! Form::select('categoria_id', $categorias, $categoria_id, ['class'=>'form-control','wire:model'=>'categoria_id']) !!}
+                {!! Form::select('categoria_id', $categorias, $categoria_id, ['class'=>'form-control','wire:model'=>'categoria_id', 'placeholder'=>'Seleccione Categoria']) !!}
             </div>
             <div class="form-group">
                 <label for="nombre_producto"></label>
@@ -50,7 +50,9 @@
                 @if ($new_image_datos)
                     <img class="profile-user-img img-fluid" src="{{$new_image_datos->temporaryUrl()}}" alt="nueva imagen datos" id="img-foto">
                 @else
+                    @if ($img_datos_edit != '')
                     <img class="profile-user-img img-fluid" src="{{asset(Storage::url($img_datos_edit))}}" alt="Imagen datos" id="img-foto">
+                    @endif
                 @endif
             </div>
             <div class="form-group">

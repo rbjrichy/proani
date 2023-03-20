@@ -1,10 +1,16 @@
 <div>
+    @php
+        if(is_null($ruta_flecha))
+        {
+            $ruta_flecha = 'theme/proanisrl/img/asset-comun/flechaizq.png';
+        }
+    @endphp
     <div class="detalle-producto">
         <div class="flechaizq-slice">
             <div wire:click="back({{$link_pre}})">
                 <img
                   class="imgflechaizq btn-icon"
-                  src="{{asset('theme/proanisrl/img/asset-comun/flechaizq.png')}}"
+                  src="{{asset($ruta_flecha)}}"
                   alt="flecha izq"
                 />
             </div>
@@ -16,7 +22,7 @@
             <div wire:click="next({{$link_pos}})">
                 <img
                   class="imgflechader btn-icon"
-                  src="{{asset('theme/proanisrl/img/asset-comun/flechaizq.png')}}"
+                  src="{{asset($ruta_flecha)}}"
                   alt="flecha der"
                 />
             </div>

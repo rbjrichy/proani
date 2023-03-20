@@ -37,6 +37,12 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
+                            <a href="{{ url('/evento_info') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Evento_info</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/eventos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Eventos</a> 
+                        </li>
+						<li class="nav-item">
                             <a href="{{ url('/productos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Productos</a> 
                         </li>
 						<li class="nav-item">

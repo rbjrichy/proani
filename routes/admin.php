@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\ClienteAdminController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\EventoInfoController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
@@ -21,3 +22,11 @@ Route::prefix('admin')->name('admin.catergoria.producto.')->group(function(){
 Route::prefix('admin')->name('admin.producto.')->group(function(){
     Route::view('productos', 'livewire.productos.index')->middleware('auth')->name('index');
 });
+
+Route::prefix('admin')->name('admin.evento.')->group(function(){
+    Route::view('evento_info', 'livewire.evento_info.index')->middleware('auth')->name('info.index');
+    Route::get('evento/edit/info/{evento}',[EventoInfoController::class,'editinfo'])->middleware('auth')->name('info');
+    Route::post('evento/edit/info/{eventoinfo}',[EventoInfoController::class,'storeinfo'])->middleware('auth')->name('storeinfo');
+    Route::view('eventos', 'livewire.eventos.index')->middleware('auth')->name('index');
+});
+

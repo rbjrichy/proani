@@ -22,63 +22,29 @@
   <main class="contenedor bg-plomo">
       <section class="all-adopcion">
           <div class="feria-contenedor">
-              <div class="card-feria">
-                  <div class="imagen">
-                    <div class="marco-img fig-oval-inv">
-                      <img src="{{asset('theme/proanisrl/img/ferias/foto-feria.png')}}" alt="imagen adopcion">
-                    </div>
-                    <div class="img-text-der">
-                      <div class="contenedor-img-texto">
-                        <img class="img-alin-der" src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen adopcion">
-                        <p class="tit-adopta">Refugio 1</p>
-                      </div>
-                    </div>
+            @foreach ($adopciones as $row)
+            <div class="card-feria">
+                <div class="imagen">
+                  <div class="marco-img fig-oval-inv">
+                    <img src="{{asset(Storage::url($row->foto_evento))}}" alt="imagen adopcion">
                   </div>
-                  <div class="texto">
-                      <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora excepturi porro temporibus ipsam, facilis id eius cum laudantium autem quaerat, veniam quia, error impedit. Placeat cumque inventore facere nulla assumenda.</span>
-                  </div>
-                  <div class="boton btn-vermas">
-                      <img class="btn-icon" src="theme/proanisrl/img/ferias/ver_mas.png" alt')}}="imagen boton mas info">
-                  </div>
-              </div>
-              <div class="card-feria">
-                  <div class="imagen">
-                    <div class="marco-img fig-oval-inv">
-                      <img src="{{asset('theme/proanisrl/img/ferias/foto-feria.png')}}" alt="imagen adopcion">
-                    </div>
-                    <div class="img-text-der">
-                      <div class="contenedor-img-texto">
-                        <img class="img-alin-der" src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen adopcion">
-                        <p class="tit-adopta">Refugio 2</p>
-                      </div>
+                  <div class="img-text-der">
+                    <div class="contenedor-img-texto">
+                      <img class="img-alin-der" src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen adopcion">
+                      <p class="tit-adopta">{{$row->titulo}}</p>
                     </div>
                   </div>
-                  <div class="texto">
-                      <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora excepturi porro temporibus ipsam, facilis id eius cum laudantium autem quaerat, veniam quia, error impedit. Placeat cumque inventore facere nulla assumenda.</span>
-                  </div>
-                  <div class="boton btn-vermas">
-                      <img class="btn-icon" src="theme/proanisrl/img/ferias/ver_mas.png" alt')}}="imagen boton mas info">
-                  </div>
-              </div>
-              <div class="card-feria">
-                  <div class="imagen">
-                    <div class="marco-img fig-oval-inv">
-                      <img src="{{asset('theme/proanisrl/img/ferias/foto-feria.png')}}" alt="imagen adpcion">
-                    </div>
-                    <div class="img-text-der">
-                      <div class="contenedor-img-texto">
-                        <img class="img-alin-der" src="{{asset('theme/proanisrl/img/btn/ferias-txt.svg')}}" alt="imagen adopcion">
-                        <p class="tit-adopta">Refugio 3</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="texto">
-                      <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora excepturi porro temporibus ipsam, facilis id eius cum laudantium autem quaerat, veniam quia, error impedit. Placeat cumque inventore facere nulla assumenda.</span>
-                  </div>
-                  <div class="boton btn-vermas">
-                      <img class="btn-icon" src="theme/proanisrl/img/ferias/ver_mas.png" alt')}}="imagen boton mas info">
-                  </div>
-              </div>
+                </div>
+                <div class="texto">
+                    <span>
+                        {{$row->descripcion}}
+                    </span>
+                </div>
+                <div class="boton btn-vermas">
+                    <img class="btn-icon" src="theme/proanisrl/img/ferias/ver_mas.png" alt')}}="imagen boton mas info">
+                </div>
+            </div>
+            @endforeach
           </div>
       </section>
       <!-- Start btn-back -->

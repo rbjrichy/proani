@@ -55,7 +55,7 @@
                                         </div>
                                     @endif
                                 </td>
-								<td>{{ $row->categoria_id }}</td>
+								<td>{{ $row->categoria->marca }}</td>
 								<td width="90">
 								<div class="btn-group">
 									<button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

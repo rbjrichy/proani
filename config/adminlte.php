@@ -288,6 +288,12 @@ return [
                     'can' => 'admin.user.index'
                 ],
                 [
+                    'text' => 'Eventos',
+                    'route'  => 'admin.evento.index',
+                    'icon' => 'fas fa-fw fa-user',
+                    'can' => 'admin.user.index'
+                ],
+                [
                     'text' => 'usuarios',
                     'route'  => 'admin.user.index',
                     'icon' => 'fas fa-fw fa-user',
@@ -461,6 +467,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+                ],
+            ],
+        ],
+        'Summernote' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.css',
                 ],
             ],
         ],

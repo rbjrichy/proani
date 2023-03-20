@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CarruselProducto extends Component
 {
-    public $producto;
+    public $producto, $ruta_flecha;
     public $link_pre, $link_pos;
     public function render()
     {
@@ -38,8 +38,11 @@ class CarruselProducto extends Component
             {   //es el primero
                 // dd('es el primero');
                 $this->link_pre = $ultimo->id;
+                $this->link_pos = $ultimo->id;
                 $next = $productos->get(++$aux);
-                $this->link_pos = $next->id;
+                if(!is_null($next)){
+                    $this->link_pos =$next->id;
+                }
                 break;
             }
             if($ultimo->id == $this->producto->id)

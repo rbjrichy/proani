@@ -30,30 +30,16 @@
       </div>
       <section class="all-simposios">
           <div class="simposio-contenedor">
-              <div class="card-simposio">
-                  <div class="imagen">
-                      <img src="{{asset('theme/proanisrl/img/simposios/foto_simposio.jpg')}}" alt="imagen simposio">
-                  </div>
-                  <div class="boton">
-                      <img class="btn-icon" src="{{asset('theme/proanisrl/img/simposios/mas_info.png')}}" alt="imagen boton mas info">
-                  </div>
-              </div>
-              <div class="card-simposio">
-                  <div class="imagen">
-                      <img src="{{asset('theme/proanisrl/img/simposios/foto_simposio.jpg')}}" alt="imagen simposio">
-                  </div>
-                  <div class="boton">
-                      <img class="btn-icon" src="{{asset('theme/proanisrl/img/simposios/mas_info.png')}}" alt="imagen boton mas info">
-                  </div>
-              </div>
-              <div class="card-simposio">
-                  <div class="imagen">
-                      <img src="{{asset('theme/proanisrl/img/simposios/foto_simposio.jpg')}}" alt="imagen simposio">
-                  </div>
-                  <div class="boton">
-                      <img class="btn-icon" src="{{asset('theme/proanisrl/img/simposios/mas_info.png')}}" alt="imagen boton mas info">
-                  </div>
-              </div>
+            @foreach ($simposios as $row)
+            <div class="card-simposio">
+                <div class="imagen">
+                    <img src="{{asset(Storage::url($row->foto_evento))}}" alt="imagen simposio">
+                </div>
+                <div class="boton">
+                    <img class="btn-icon" src="{{asset('theme/proanisrl/img/simposios/mas_info.png')}}" alt="imagen boton mas info">
+                </div>
+            </div>
+            @endforeach
           </div>
       </section>
       <!-- Start btn-back -->

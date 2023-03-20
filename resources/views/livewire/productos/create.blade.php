@@ -12,7 +12,7 @@
 				<form>
                     <div class="form-group">
                         <label for="categoria_id"></label>
-                        {!! Form::select('categoria_id', $categorias, null, ['class'=>'form-control','wire:model'=>'categoria_id']) !!}
+                        {!! Form::select('categoria_id', $categorias, null, ['class'=>'form-control','wire:model'=>'categoria_id', 'placeholder'=>'Seleccione Categoria']) !!}
                         @error('categoria_id') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
             <div class="form-group">

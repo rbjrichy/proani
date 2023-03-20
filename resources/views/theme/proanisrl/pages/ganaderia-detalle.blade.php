@@ -6,7 +6,7 @@
 <div class="bg-ganaderia-black contenedor">
     <header class="header-detalle-producto-ganaderia">
       <div class="header-contenido-detalle-producto">
-        <a href="./">
+        <a href="{{asset('/')}}">
           <img
             src="{{asset('theme/proanisrl/img/asset-comun/logo_proani.png')}}"
             alt="icon lideres en nutricion animal"

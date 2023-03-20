@@ -20,7 +20,6 @@
                     @error('especie') <span class="error text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div wire:loading  wire:target="logo" class="alert alert-warning alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <h5><i class="icon fas fa-exclamation-triangle"></i> Imagen Cargando!</h5>
                     Espere un momento hasta que la imagen se haya procesado.
                 </div>
