@@ -42,7 +42,7 @@
 							<tr>
 								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->nombre_producto }}</td>
-								<td>{{ $row->descripcion }}</td>
+								<td>{{ $row->descripcion_producto }}</td>
 								<td>
                                     <div class="col-12 text-center p-3">
                                         <img class="profile-user-img img-fluid" src="{{asset(Storage::url($row->img_producto))}}" alt="producto" id="img-foto">

@@ -27,5 +27,9 @@ class Producto extends Model
     {
                 return $this->belongsTo(CategoriaProducto::class);
     }
+    public function getDescripcionProductoAttribute()
+    {
+        return substr($this->descripcion,0,150);
+    }
 
 }

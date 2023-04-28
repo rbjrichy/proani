@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\CategoriaProducto;
 use App\Models\Dato;
+use App\Models\Especy;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
@@ -22,7 +23,8 @@ class CategoriaProductos extends Component
     public function mount()
     {
         $this->identificador = rand();
-        $this->especies = Dato::where('tipo', 'especie')->get()->pluck('valor','valor');
+        // $this->especies = Dato::where('tipo', 'especie')->get()->pluck('valor','valor');
+        $this->especies = Especy::select('nombre')->groupBy('nombre')->get()->pluck('nombre','nombre');
     }
 
     public function render()

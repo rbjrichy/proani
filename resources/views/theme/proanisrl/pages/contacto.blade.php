@@ -10,7 +10,8 @@
     {{'bg-patitas'}}
 @endsection --}}
 @section('body')
-
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <header class="contenedor bg-white">
     <div class="header-contenido-contacto">
       <div class="contacto-bloque">
@@ -48,91 +49,10 @@
     <main class="contenedor text-center">
     <section class="form-contacto">
         <h3>Consulta con un especialista</h3>
-        <form class="formulario" action="#" method="post">
-            <div class="campo">
-                <label for="especialista">Departamento</label>
-                <div class="inline">
-                    <input type="text" name="departamento" id="departamento">
-                    <button class="btn-enviar" type="submit">Buscar</button>
-                </div>
-            </div>
-        </form>
-        <form class="formulario" action="#">
-        <div class="contenedor-ubicaciones">
-            <div id="map" class="map"></div>
-            <div class="list-sucursales">
-                <ul>
-                    <li>
-                        <input type="radio" name="sucursal" id="sucurusal">
-                        <span>sucursal 1</span>
-                        <dl>
-                            <dt>Encargado Ing. Felix Nicolas</dt>
-                            <dd>Cel. 69007252</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <input type="radio" name="sucursal" id="sucurusal">
-                        <span>sucursal 1</span>
-                        <dl>
-                            <dt>Encargado Ing. Felix Nicolas</dt>
-                            <dd>Cel. 69007252</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <input type="radio" name="sucursal" id="sucurusal">
-                        <span>sucursal 1</span>
-                        <dl>
-                            <dt>Encargado Ing. Felix Nicolas</dt>
-                            <dd>Cel. 69007252</dd>
-                        </dl>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="sucursal-select">
-            <span>sucursal 1</span>
-            <dl>
-                <dt>Encargado Ing. Felix Nicolas</dt>
-                <dd>Cel. 69007252</dd>
-            </dl>
-        </div>
-        <div class="formulario-select">
-            <div class="campo">
-                <label for="especie">Especie</label>
-                <div class="inline">
-                    <input type="text" name="especie" id="especie">
-                </div>
-            </div>
-            <div class="campo">
-                <label for="edad">Edad</label>
-                <div class="inline">
-                    <input type="text" name="edad" id="edad">
-                </div>
-            </div>
-            <div class="campo">
-                <label for="medida">Medida</label>
-                <div class="inline">
-                    <input type="text" name="medida" id="medida">
-                </div>
-            </div>
-            <div class="campo">
-                <label for="fases">Fases</label>
-                <div class="inline">
-                    <input type="text" name="fases" id="fases">
-                </div>
-            </div>
-            <div class="campo">
-                <label for="consulta">Escribe tu consulta</label>
-                <div class="inline">
-                    <input type="text" name="consulta" id="consulta">
-                </div>
-            </div>
-            <div class="campo center">
-                <button class="btn-enviar text-center" type="submit">Enviar</button>
-            </div>
-        </div>
+        @livewire('contacto.select-departamento', ['departamentos' => $departamentos])
+        @livewire('contacto.select-sucursal', ['sucursales' => $sucursales])
+        @livewire('contacto.enviar-consulta')
 
-        </form>
     </section>
 
     <section class="contenedor contenedor-btn">
@@ -158,5 +78,24 @@
 <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
  crossorigin=""></script>
+ <script>
+    var direccion_sucursal = 'Oficina central';
+    var coordenadas = [-17.851, -63.254];
+    var nombre_sucursal = 'Oficinas de ProAni SRL';
+ </script>
     <script src="{{asset('theme/proanisrl/js/maps.js')}}"></script>
+<script>
+    Livewire.on('mostrarMapa', datos => {
+        coordenadas = datos.coordenadas.split(',');
+        nombre_sucursal = datos.nombre_sucursal;
+        direccion_sucursal = datos.direccion;
+        // limpiarMarcadores(map);
+        aniadir_marcador(map, coordenadas, nombre_sucursal, direccion_sucursal);
+        centrarMarcador(map,coordenadas);
+    });
+    Livewire.on('abrirLink', link => {
+        var win = window.open(link, '_blank');
+        win.focus();
+    });
+</script>
 @endsection

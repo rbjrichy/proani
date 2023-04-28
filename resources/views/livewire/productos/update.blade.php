@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <div class="custom-file">
-                    <input wire:model="new_image_prod" type="file" class="custom-file-input" id="customFile{{$identificador}}" name="logo" accept="image/*">
+                    <input wire:model="new_image_prod" type="file" class="custom-file-input" id="customFile" name="logo" accept="image/*">
                     <label wire:ignore class="custom-file-label" for="customFile">Cargar Imagen Producto</label>
                     <input wire:model="img_producto_edit" type="hidden">
                 </div>

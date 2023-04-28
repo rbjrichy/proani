@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriaProducto;
+use App\Models\Dato;
+use App\Models\Especy;
 use App\Models\Evento;
 use App\Models\Producto;
+use App\Models\Sucursale;
+use App\Models\ThemeImg;
 use Illuminate\Http\Request;
+use Psy\Output\Theme;
 
 class ThemeProaniController extends Controller
 {
@@ -83,7 +88,11 @@ class ThemeProaniController extends Controller
 
     public function contacto()
     {
-        return view('theme.proanisrl.pages.contacto');
+        $sucursales = Sucursale::with('persona')->where('departamento', 'Santa Cruz')->get();
+        // dd($sucursales);
+        $departamentos = Sucursale::select('departamento')->groupBy('departamento')->get()->pluck('departamento','departamento');
+        // dd($departamentos);
+        return view('theme.proanisrl.pages.contacto')->with(compact('departamentos', 'sucursales'));
     }
     public function ganaderiadetalle($categoria)
     {
@@ -94,5 +103,17 @@ class ThemeProaniController extends Controller
     public function guia_alimentaria()
     {
         return view('theme.proanisrl.pages.guia-alimentaria');
+    }
+    public function generico($nombre)
+    {
+        $categoria = CategoriaProducto::where('especie',$nombre)->first();
+        $especie = Especy::with('imagenesTheme')->where('nombre', $nombre)->first();
+        // dd($especie->getElemento('header')->ruta_img);
+        // $imgTheme = ThemeImg::all();
+        $producto = null;
+        if($categoria){
+            $producto = $categoria->productos()->first();
+        }
+        return view('theme.proanisrl.pages.generico')->with(compact('producto','especie'));
     }
 }

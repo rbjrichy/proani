@@ -3,6 +3,8 @@
 @section('title', 'Detalle Knino')
 
 @section('body')
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <div class="contenedor bg_color_knino">
     <header class="header contenedor">
       <div class="logo_proani">

@@ -3,7 +3,8 @@
 @section('title', 'Peces')
 
 @section('body')
-
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <header class="header_animal fondo-header-peces contenedor">
     <div class="header-contenido">
       <div class="logo_proani">

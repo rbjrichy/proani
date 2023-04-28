@@ -260,13 +260,13 @@ return [
         ],
         [
             'text'    => 'Clientes',
-            'icon'    => 'fas fa-user-cog',
+            'icon'    => 'fas fa-user-friends',
             'submenu' => [
                 [
                     'text' => 'Listado',
                     'route'  => 'admin.cliente.index',
-                    'icon' => 'fas fa-user-friends',
-                    // 'can' => 'admin.user.index'
+                    'icon' => 'fas fa-users',
+                    'can' => 'admin.user.index'
                 ],
             ],
         ],
@@ -276,21 +276,39 @@ return [
             'can'     =>  'ver.menu.admin',
             'submenu' => [
                 [
+                    'text' => 'Especies',
+                    'route'  => 'admin.especie.index',
+                    'icon' => 'fas fa-cat',
+                    'can' => 'admin.user.index'
+                ],
+                [
+                    'text' => 'Paginas',
+                    'route'  => 'admin.pages.index',
+                    'icon' => 'far fa-file-alt',
+                    'can' => 'admin.user.index'
+                ],
+                [
                     'text' => 'Categorias',
                     'route'  => 'admin.catergoria.producto.index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-layer-group',
                     'can' => 'admin.user.index'
                 ],
                 [
                     'text' => 'Productos',
                     'route'  => 'admin.producto.index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-dog',
                     'can' => 'admin.user.index'
                 ],
                 [
                     'text' => 'Eventos',
                     'route'  => 'admin.evento.index',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-glass-cheers',
+                    'can' => 'admin.user.index'
+                ],
+                [
+                    'text' => 'Sucursales',
+                    'route'  => 'admin.sucursal.index',
+                    'icon' => 'fas fa-laptop-house',
                     'can' => 'admin.user.index'
                 ],
                 [

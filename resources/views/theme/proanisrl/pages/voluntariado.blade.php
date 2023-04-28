@@ -5,6 +5,8 @@
     {{'bg-patitas'}}
 @endsection
 @section('body')
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <div class="contenedor bg-plomo">
 
     <header class="header_event fondo-header-voluntariado contenedor bg-plomo">

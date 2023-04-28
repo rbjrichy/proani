@@ -5,6 +5,9 @@
             $ruta_flecha = 'theme/proanisrl/img/asset-comun/flechaizq.png';
         }
     @endphp
+    <div class="producto-descripcion">
+        <p class="texto-peces">{{$producto->descripcion}}</p>
+    </div>
     <div class="detalle-producto">
         <div class="flechaizq-slice">
             <div wire:click="back({{$link_pre}})">

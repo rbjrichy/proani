@@ -38,11 +38,25 @@ class DatosSeeder extends Seeder
         //         'valor' => $especie,
         //     ]);
         // }
-        $eventos = ['Simposios', 'Ferias', 'Adopciones', 'Voluntariado'];
-        foreach ($eventos as $evento) {
+        // $eventos = ['Simposios', 'Ferias', 'Adopciones', 'Voluntariado'];
+        // foreach ($eventos as $evento) {
+        //     Dato::create([
+        //         'tipo' => 'eventos',
+        //         'valor' => $evento,
+        //     ]);
+        // }
+        // $departamentos = ['Santa Cruz', 'La Paz', 'Cochabamba', 'Chuquisaca', 'Tarija', 'Potosi', 'Oruro', 'Beni', 'Pando'];
+        // foreach ($departamentos as $deparamento) {
+        //     Dato::create([
+        //         'tipo' => 'departamentos',
+        //         'valor' => $deparamento,
+        //     ]);
+        // }
+        $seccion_img = ['header', 'footer','body'];
+        foreach ($seccion_img as $tipo) {
             Dato::create([
-                'tipo' => 'eventos',
-                'valor' => $evento,
+                'tipo' => 'seccion_img',
+                'valor' => $tipo,
             ]);
         }
     }

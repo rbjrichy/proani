@@ -30,3 +30,15 @@ Route::prefix('admin')->name('admin.evento.')->group(function(){
     Route::view('eventos', 'livewire.eventos.index')->middleware('auth')->name('index');
 });
 
+Route::prefix('admin')->name('admin.sucursal.')->group(function(){
+    Route::view('sucursales', 'livewire.sucursales.index')->middleware('auth')->name('index');
+});
+
+Route::prefix('admin')->name('admin.especie.')->group(function(){
+    Route::view('especies', 'livewire.especies.index')->middleware('auth')->name('index');
+});
+
+Route::prefix('admin')->name('admin.pages.')->group(function(){
+    Route::view('theme_imgs', 'livewire.theme-imgs.index')->middleware('auth')->name('index');
+});
+

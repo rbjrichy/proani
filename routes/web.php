@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SimposioController;
 use App\Http\Controllers\ThemeProaniController;
@@ -24,13 +25,7 @@ Route::get('artisan-cammand', function(){
     Artisan::call('storage:link');
 });
 
-Route::get('/', function () {
-    return view('theme.proanisrl.index');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [InicioController::class, "inicio"]);
 
 require __DIR__.'/auth.php';
 
@@ -75,6 +70,7 @@ Route::group([
     Route::get('quienes-somos', [ThemeProaniController::class, 'quienes_somos'])->name('quienessomos');
     Route::get('contacto', [ThemeProaniController::class, 'contacto'])->name('contacto');
     Route::get('guia/alimentaria', [ThemeProaniController::class, 'guia_alimentaria'])->name('guia_alimentaria');
+    Route::get('generico/{nombre}', [ThemeProaniController::class, 'generico'])->name('generico');
 
 });
 

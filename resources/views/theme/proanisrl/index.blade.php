@@ -3,7 +3,6 @@
 @section('title', 'Proani SRL')
 
 @section('body')
-
     <!-- LOADER -->
     {{-- <div id="preloader">
         <div class="loader">
@@ -11,6 +10,8 @@
         </div>
     </div> --}}
     <!-- END LOADER -->
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
     <!-- Start header -->
     @include('theme.proanisrl.partials.header.header-home')
     <!-- End header -->
@@ -48,12 +49,12 @@
             this.cambiar_attributo(images2, "block")
             bandera = true;
         }
-        console.log(bandera);
+        // console.log(bandera);
     }, 6000);
 
     function cambiar_attributo(listaObjetos, estado){
         for (let nodo of listaObjetos){
-            console.log(nodo)
+            // console.log(nodo)
             nodo.style.display = estado;
         }
     }

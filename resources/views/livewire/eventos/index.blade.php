@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Panel control cliente')
+@section('title', 'Administrar Eventos')
 
 @section('content_header')
 <h1>Administrar Categoría Productos</h1>
@@ -10,8 +10,8 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             @livewire('eventos')
-        </div>     
-    </div>   
+        </div>
+    </div>
 </div>
 @endsection
 @section('css')

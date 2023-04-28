@@ -3,6 +3,8 @@
 @section('title', 'Ganadería Detalle')
 
 @section('body')
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <div class="bg-ganaderia-black contenedor">
     <header class="header-detalle-producto-ganaderia">
       <div class="header-contenido-detalle-producto">

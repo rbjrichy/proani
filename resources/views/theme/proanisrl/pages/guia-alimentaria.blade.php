@@ -1,6 +1,6 @@
 @extends('theme.proanisrl.master')
 
-@section('title', 'Contacto')
+@section('title', 'Quienes Somos')
 @section('custom_css')
 
 @endsection
@@ -8,6 +8,8 @@
     {{'bg-patitas'}}
 @endsection --}}
 @section('body')
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <main class="contenedor bg-white guia-gato">
     <div class="contenedor-gato">
      <div class="content-formulario">

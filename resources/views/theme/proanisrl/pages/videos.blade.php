@@ -3,6 +3,8 @@
 @section('title', 'Videos')
 
 @section('body')
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <header class="contenedor">
     <div class="header-videos">
       <a href="./">

@@ -5,17 +5,18 @@
     {{'bg-patitas'}}
 @endsection --}}
 @section('body')
-
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <div class="contenedor ">
     <div class="bg-nosotros">
       <div class="contenedor-nosotoros">
         <div class="proani-letras">
           <div class="proani-texto">
-            <a href="./">
+            <a href="{{asset('/')}}">
                 <span class="pro">PRO</span><span class="ani">ANI</span>
             </a>
           </div>
-          <a href="./">
+          <a href="{{asset('/')}}">
             <img src="{{asset('theme/proanisrl/img/nosotros/proani.png')}}" alt="proani letras">
           </a>
         </div>
@@ -29,7 +30,7 @@
                 <div class="linea-hijo-top"></div>
               </div>
               <p>A su retorno de Europa y luego de soñar durante años con un emprendimiento dedicado a cuidad la salud y bienestar de los animales,
-                Alexsis y Raúl Seraano inauguran Lassie, la primer veterinaria de Santa Cruz.
+                Alexsis y Raúl Serrano inauguran Lassie, la primer veterinaria de Santa Cruz.
               </p>
               <div class="cuadro-padre">
                 <div class="linea-hijo-bottom"></div>

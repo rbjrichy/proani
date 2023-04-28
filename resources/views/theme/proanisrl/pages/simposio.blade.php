@@ -4,7 +4,8 @@
 
 @section('body')
 
-
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <header class="header_event fondo-header-simposio contenedor">
     <div class="header-contenido-event">
       <div class="event-title-simposio">

@@ -3,7 +3,8 @@
 @section('title', 'Ferias')
 
 @section('body')
-
+{{-- menu flotante --}}
+@include('theme.proanisrl.partials.nav.menu-flot')
 <div class="contenedor bg-plomo">
     <header class="header_event fondo-header-feria contenedor">
       <div class="header-contenido-event evento-logo-derecha">

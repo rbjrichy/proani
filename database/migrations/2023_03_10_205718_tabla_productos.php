@@ -17,7 +17,7 @@ class TablaProductos extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_producto', 250);
-            $table->string('descripcion', 600);
+            $table->string('descripcion', 1500);
             $table->string('img_datos',250)->nullable();
             $table->string('img_producto',250);
             $table->unsignedBigInteger('categoria_id');
