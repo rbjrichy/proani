@@ -19,7 +19,7 @@ class CrearTablaMascotas extends Migration
             $table->date('fecha_nac')->nullable();
             $table->string('sexo',10)->nullable();
             $table->string('raza','250')->nullable();
-            $table->string('foto', 100)->default('default.png');
+            $table->string('foto', 250)->default('default.png');
             $table->string('descripcion',250)->nullable();
             $table->boolean('activo')->default(1);
             $table->unsignedBigInteger('persona_id');

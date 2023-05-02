@@ -43,7 +43,9 @@
 @endsection
 
 @section('custom_js')
+
 <style>
+
     .header_generico {
         background-image: url({{ Storage::url($especie->getElemento('header')->ruta_img) }});
     }

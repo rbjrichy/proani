@@ -23,13 +23,15 @@ class Especy extends Model
 
     public function getElemento($seccion)
     {
+        $especie = new Especy();
+        $especie->ruta_img = 'paginas/general_default.png';
         $imagenes = $this->imagenesTheme;
         foreach ($imagenes as $key => $value) {
             if ($value->seccion == $seccion) {
                 return $value;
             }
         }
-        return new Collection();
+        return $especie;
     }
 
 }
