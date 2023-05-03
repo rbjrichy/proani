@@ -37,6 +37,9 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
+                            <a href="{{ url('/videos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Videos</a> 
+                        </li>
+						<li class="nav-item">
                             <a href="{{ url('/theme_imgs') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Theme_imgs</a> 
                         </li>
 						<li class="nav-item">

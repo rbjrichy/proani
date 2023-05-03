@@ -9,6 +9,7 @@ use App\Models\Evento;
 use App\Models\Producto;
 use App\Models\Sucursale;
 use App\Models\ThemeImg;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Psy\Output\Theme;
 
@@ -39,7 +40,8 @@ class ThemeProaniController extends Controller
     }
     public function videos()
     {
-        return view('theme.proanisrl.pages.videos');
+        $lista_videos = Video::all();
+        return view('theme.proanisrl.pages.videos')->with(compact('lista_videos'));
     }
 
     public function knino()

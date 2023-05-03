@@ -41,4 +41,6 @@ Route::prefix('admin')->name('admin.especie.')->group(function(){
 Route::prefix('admin')->name('admin.pages.')->group(function(){
     Route::view('theme_imgs', 'livewire.theme-imgs.index')->middleware('auth')->name('index');
 });
-
+Route::prefix('admin')->name('admin.videos.')->group(function(){
+    Route::view('videos', 'livewire.videos.index')->middleware('auth')->name('index');
+});

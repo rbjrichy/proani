@@ -312,6 +312,12 @@ return [
                     'can' => 'admin.user.index'
                 ],
                 [
+                    'text' => 'Videos',
+                    'route'  => 'admin.videos.index',
+                    'icon' => 'fas fa-film"',
+                    'can' => 'admin.user.index'
+                ],
+                [
                     'text' => 'usuarios',
                     'route'  => 'admin.user.index',
                     'icon' => 'fas fa-fw fa-user',
