@@ -12,7 +12,10 @@
 			<form>
                 <div class="form-group">
                     <label for="marca"></label>
-                    <input wire:model="marca" type="text" class="form-control" id="marca" placeholder="Marca">@error('marca') <span class="error text-danger">{{ $message }}</span> @enderror
+                    <input wire:model="marca" type="text" class="form-control" id="marca" placeholder="Marca">
+                    @error('marca')
+                        <span class="error text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="especie"></label>
