@@ -42,7 +42,7 @@
                                 @php
                                     $image_url = "https://www.proanisrl.com/img/mascotas/default.png";
                                     if (isset($mascota)) {
-                                        $image_url = asset(Storage::url('mascotas/'.$mascota->foto));
+                                        $image_url = asset(Storage::url($mascota->foto));
                                     }
                                 @endphp
                                 <img src="{{$image_url}}" alt="user-avatar"

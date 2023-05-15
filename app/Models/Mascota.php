@@ -11,7 +11,7 @@ class Mascota extends Model
     protected $table = 'mascotas';
     protected $dates = ['fecha_nac'];
     protected $fillable = [
-        'nombres', 'sexo', 'descripcion', 'foto', 'fecha_nac', 'persona_id'
+        'nombres','sexo','raza','foto','descripcion','peso','vacunas','persona_id','tipo_mascota_id', 'fecha_nac'
     ];
 
     public function miPersona()

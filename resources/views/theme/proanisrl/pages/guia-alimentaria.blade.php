@@ -9,6 +9,10 @@
 @endsection --}}
 @section('body')
     {{-- menu flotante --}}
+@php
+    $menuComponent = new App\View\Components\CargarMenu();
+    $menu = $menuComponent->menu;
+@endphp
     @include('theme.proanisrl.partials.nav.menu-flot')
     <main class="contenedor bg-white guia-gato">
         <div class="contenedor-gato">
@@ -17,87 +21,98 @@
                 <div class="campo">
                     <span class="titulo-guia">Bienvenido</span>
                 </div>
-                    <p> {{Auth::user()->name}}</p>
+                    <p> {{Auth::user()->persona->full_name}}</p>
                 @else
-                    <form class="formulario" action="#" method="post">
+                    <form class="formulario" action="{{route('registro')}}" method="post">
+                        @csrf
                         <div class="campo">
                             <span class="titulo-guia">MIS DATOS</span>
                         </div>
                         <div class="campo">
-                            <label for="nombre">Nombre</label>
+                            <label for="nombres">Nombres</label>
                             <div class="inline">
-                                <input type="text" name="nombre" id="nombre">
+                                <input type="text" name="nombres" id="nombres" value="{{ old('nombres', '') }}">
+                                @error('nombres')
+                                    <span class="text-alerta-form">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="campo">
                             <label for="apellidos">Apellidos</label>
                             <div class="inline">
-                                <input type="text" name="apellidos" id="apellidos">
+                                <input type="text" name="apellidos" id="apellidos" value="{{ old('apellidos', '') }}">
+                                @error('apellidos')
+                                    <span class="text-alerta-form">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="campo">
                             <label for="telefono">Teléfono</label>
                             <div class="inline">
-                                <input type="text" name="telefono" id="telefono">
+                                <input type="text" name="telefono" id="telefono" value="{{ old('telefono', '') }}">
                             </div>
+                                @error('telefono')
+                                    <span class="text-alerta-form">{{ $message }}</span>
+                                @enderror
                         </div>
+
                         <div class="campo">
-                            <input type="checkbox" name="whatsapp" id="whatsapp"> <span>Usa Whatsapp</span>
+                            <input type="checkbox" checked name="whatsapp" id="whatsapp"> <span>Usa Whatsapp</span>
                         </div>
                         <div class="campo">
                             <label for="email">Correo electrónico</label>
                             <div class="inline">
-                                <input type="text" name="email" id="email">
+                                <input type="text" name="email" id="email" value="{{ old('email', '') }}">
+                                @error('email')
+                                    <span class="text-alerta-form">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
+                        <div class="campo">
+                            <x-label for="password" :value="__('Password')" />
+                            <x-input id="password" class="block mt-1 w-full"
+                                            type="password"
+                                            name="password"
+                                            required autocomplete="new-password" />
+                        </div>
+                        <div class="campo">
+                            <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                            <x-input id="password_confirmation" class="block mt-1 w-full"
+                                    type="password"
+                                    name="password_confirmation" required />
+                            @error('password')
+                                <span class="text-alerta-form">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="campo">
+                            <button class="btn-enviar" type="submit" name="registrarme" id="registrame">Registrarme</button>
+                        </div>
+                    </form>
+                    <form>
                         <div class="campo">
                             @livewire('login-guia')
                         </div>
                     </form>
                 @endif
                 <br>
-                <form class="formulario" action="#" method="post">
-                    <br>
-                    <div class="campo">
-                        <span class="titulo-guia">MIS MASCOTAS</span>
-                    </div>
-                    <div class="campo">
-                        <label for="Nombre">Nombre</label>
-                        <div class="inline">
-                            <input type="text" name="Nombre" id="Nombre">
-                        </div>
-                    </div>
-                    <div class="campo">
-                        <span class="btn-enviar"><input type="radio" name="tipo-mascota" id="gato">&nbsp; Gato</span>
-                        <span class="btn-enviar"><input type="radio" name="tipo-mascota" id="perro">&nbsp;
-                            Perro
-                        </span>
-                    </div>
-                    <div class="campo">
-                        <label for="raza">Raza</label>
-                        <div class="inline">
-                            <input type="text" name="raza" id="raza">
-                        </div>
-                    </div>
-                    <div class="campo">
-                        <label for="edad">Edad</label>
-                        <div class="inline">
-                            <input type="text" name="edad" id="edad">
-                        </div>
-                    </div>
-                    <div class="campo">
-                        <label for="peso">Peso</label>
-                        <div class="inline">
-                            <input type="text" name="peso" id="peso">
-                        </div>
-                    </div>
-                    <div class="campo">
-                        <label for="vacunas">Vacunas</label>
-                        <div class="inline">
-                            <input type="text" name="vacunas" id="vacunas">
-                        </div>
-                    </div>
-                </form>
+                <div>
+                    @auth
+                        @if (Auth::user()->persona->mascotas->count() > 0)
+                            <div class="campo">
+                                <span class="titulo-guia">MIS MASCOTAS</span>
+                            </div>
+                            <div class="lista-mascotas">
+                                @foreach (Auth::user()->persona->mascotas as $mascota)
+                                    <div class="mascota">
+                                        <img src="{{asset('storage/'.$mascota->foto)}}" alt="Imagen mascota">
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    @endauth
+                </div>
+                <br>
+                @livewire('mascotas.registrar-mascota')
             </div>
             <div class="content-gato">
                 <div class="logo">

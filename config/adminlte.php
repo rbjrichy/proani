@@ -261,6 +261,7 @@ return [
         [
             'text'    => 'Clientes',
             'icon'    => 'fas fa-user-friends',
+            'can'     =>  'admin.cliente.index',
             'submenu' => [
                 [
                     'text' => 'Listado',

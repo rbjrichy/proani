@@ -9,9 +9,7 @@
             Menu
         </header>
         <nav class="sidebar-nav">
-            @php
-                $menu = session('menu');
-            @endphp
+
             <ul>
                 <li>
                     <a href="{{asset('/')}}"><i class="ion-ios-navigate-outline"></i> <span class="">INICIO</span></a>
@@ -20,29 +18,11 @@
                     <a href="#"><i class="ion-bag"></i> <span>PRODUCTOS</span></a>
                     <ul class="nav-flyout">
                         @foreach ($menu as $item)
-                        <li>
-                            <a href="{{route($item->name_ruta,[$item->nombre])}}"><i class="ion-ios-color-filter-outline"></i>{{ strtoupper($item->nombre) }}</a>
-                        </li>
+                            <li>
+                                <a href="{{route($item->name_ruta,[$item->nombre])}}"><i class="ion-ios-color-filter-outline"></i>{{ strtoupper($item->nombre) }}</a>
+                            </li>
                         @endforeach
-                        {{-- <li>
-                            <a href="{{route('ktito')}}"><i class="ion-ios-clock-outline"></i>GATOS</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="ion-android-star-outline"></i>POLLOS</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="ion-heart-broken"></i>CERDOS</a>
-                        </li>
-                        <li>
-                            <a href="{{route('ganaderia')}}"><i class="ion-heart-broken"></i>VACAS</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="ion-heart-broken"></i>CABALLOS</a>
-                        </li>
-                        <li>
-                            <a href="{{route('peces')}}"><i class="ion-heart-broken"></i>PECES</a>
-                        </li> --}}
-                    </ul>
+                        </ul>
                 </li>
                 <li>
                     <a href="#"><i class="ion-ios-settings"></i> <span class="">EVENTOS</span></a>

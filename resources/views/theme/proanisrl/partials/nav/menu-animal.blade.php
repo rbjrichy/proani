@@ -1,9 +1,7 @@
 <section>
     <div class="slider">
         <div class="alto_icon_animal slider_icon">
-            @php
-                $menu = session('menu');
-            @endphp
+
             @foreach ($menu as $item)
 
                     @if ($item->name_ruta == 'generico')

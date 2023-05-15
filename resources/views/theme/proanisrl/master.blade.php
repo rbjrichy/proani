@@ -48,9 +48,11 @@
 
     @livewireStyles
 
+
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data') id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+{{-- menu flotante seccion de epecies --}}
 
     {{-- Body Content --}}
     @yield('body')

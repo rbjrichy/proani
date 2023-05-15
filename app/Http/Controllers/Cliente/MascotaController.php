@@ -31,7 +31,7 @@ class MascotaController extends Controller
         // dd($request->all());
         $mascota = Mascota::create($request->all());
         if ($request->hasFile('foto')) {
-            $this->guardarImagen($request->file('foto'), 'public/mascotas', $mascota);
+            $this->guardarImagen($request->file('foto'), 'mascotas', $mascota);
         }
         session(['msj-success'=>'Se guardaron los datos correctamente.']);
         return redirect()->route('mascota.index');
@@ -47,7 +47,7 @@ class MascotaController extends Controller
     public function update(MascotaRequest $request, Mascota $mascotum)
     {
         if ($request->hasFile('foto')) {
-            $this->guardarImagen($request->file('foto'), 'public/mascotas', $mascotum);
+            $this->guardarImagen($request->file('foto'), 'mascotas', $mascotum);
         }
         session(['msj-success'=>'Datos actualizados correctamente.']);
         $mascotum->update($request->except('foto'));
@@ -60,7 +60,7 @@ class MascotaController extends Controller
         if (Auth::user()->persona_id == $mascotum->persona_id) {
             //eliminar la imagen relacionada
             if ($mascotum->foto != 'default.png') {
-                Storage::delete('public/mascotas/'.$mascotum->foto);
+                Storage::delete('public/'.$mascotum->foto);
             }
             $mascotum->delete();
             session(['msj-success'=>'Eliminación exitosa!']);
@@ -70,17 +70,21 @@ class MascotaController extends Controller
         return redirect()->route('mascota.index');
     }
 
-    public function guardarImagen($imagen, $ruta='public/mascotas', $mascota)
+    public function guardarImagen($imagen, $ruta, $mascota)
     {
-        $nombreImg = $imagen->getClientOriginalName();
-        $imgExtencion = substr($nombreImg, strlen($nombreImg)-4);
-        $newFileName = $mascota->id.'_'.rand(100,9999).'_'.$imgExtencion;
-        $imagen->storeAs($ruta, $newFileName);
+        // $nombreImg = $imagen->getClientOriginalName();
+        // $imgExtencion = substr($nombreImg, strlen($nombreImg)-4);
+        $fecha = new \Carbon\Carbon();
+        $name_img = $fecha->format('dmy_hms').rand(100,9999);
+        $ext_image = $imagen->extension();
+        $newFileName = $mascota->id.'_'.$name_img.'.'.$ext_image;
+        $ruta_name = $imagen->storeAs("public/".$ruta, $newFileName);
+        $ruta_name =  str_replace('public/','',$ruta_name);
         if($mascota->foto != 'default.png')
         {
-            Storage::delete($ruta.'/'.$mascota->foto);
+            Storage::delete("public/".$mascota->foto);
         }
-        $mascota->foto = $newFileName;
+        $mascota->foto = $ruta_name;
         $mascota->save();
     }
 }

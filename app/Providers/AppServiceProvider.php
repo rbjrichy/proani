@@ -33,5 +33,8 @@ class AppServiceProvider extends ServiceProvider
         //     ->action(Lang::get('Verify Email Address'),  $verificationUrl)
         //     ->line(Lang::get('If you did not create an account, no further action is required.'));
         // };
+        /***
+         * FUncion que verifica si existe una tabla y carga los valores de la misma para crear el menu de nav
+         */
     }
 }

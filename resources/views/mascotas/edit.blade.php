@@ -26,7 +26,7 @@ $config = [
                 @php
                 $image_url = "https://www.proanisrl.com/img/mascotas/default.png";
                 if (isset($mascota)) {
-                    $image_url = asset(Storage::url('mascotas/'.$mascota->foto));
+                    $image_url = asset(Storage::url($mascota->foto));
                 }
             @endphp
                 <img class="profile-user-img img-fluid" src="{{$image_url}}"

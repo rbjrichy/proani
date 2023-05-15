@@ -11,6 +11,10 @@
     </div> --}}
     <!-- END LOADER -->
 {{-- menu flotante --}}
+@php
+    $menuComponent = new App\View\Components\CargarMenu();
+    $menu = $menuComponent->menu;
+@endphp
 @include('theme.proanisrl.partials.nav.menu-flot')
     <!-- Start header -->
     @include('theme.proanisrl.partials.header.header-home')

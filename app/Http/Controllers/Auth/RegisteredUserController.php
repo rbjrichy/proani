@@ -58,4 +58,38 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function registrarUsuario(Request $request)
+    {
+        $request['name'] = $request->get('nombres');
+        $request->validate([
+            'nombres' => ['required', 'string', 'max:255'],
+            'apellidos' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+        /** asignar rol al usuario creado por la web, siempre sera cliente */
+        $user->assignRole('Cliente');
+        event(new Registered($user));
+        Auth::login($user);
+        /** crear persona */
+        $persona = Persona::create([
+            'nombres' => $request->get('name'),
+            'apellidos' => $request->get('apellidos'),
+            'telefono' => $request->get('telefono'),
+            'whatsapp' => $request->get('whatsapp'),
+
+        ]);
+        $user->persona_id = $persona->id;
+        $user->save();
+
+        return redirect(RouteServiceProvider::HOME);
+    }
 }

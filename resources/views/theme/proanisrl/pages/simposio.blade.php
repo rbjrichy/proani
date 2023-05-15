@@ -5,6 +5,10 @@
 @section('body')
 
 {{-- menu flotante --}}
+@php
+$menuComponent = new App\View\Components\CargarMenu();
+$menu = $menuComponent->menu;
+@endphp
 @include('theme.proanisrl.partials.nav.menu-flot')
 <header class="header_event fondo-header-simposio contenedor">
     <div class="header-contenido-event">

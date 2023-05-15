@@ -24,7 +24,7 @@ class Persona extends Model
     }
     public function getFullNameAttribute()
     {
-        return $this->nombres . ' ' . $this->apellidos;
+        return "{$this->nombres} {$this->apellidos}";
     }
     public function usuario()
     {

@@ -104,6 +104,7 @@ class ThemeProaniController extends Controller
     }
     public function guia_alimentaria()
     {
+        // $user = Usuario::where('id',Auth::user()->id)->first();
         return view('theme.proanisrl.pages.guia-alimentaria');
     }
     public function generico($nombre)
