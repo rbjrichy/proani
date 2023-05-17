@@ -40,10 +40,11 @@
 						</thead>
 						<tbody>
 							@foreach($categoriaProductos as $row)
+
 							<tr>
 								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->marca }}</td>
-								<td>{{ $row->especie }}</td>
+								<td>{{ $row->miespecie->nombre }}</td>
 								<td>
                                     <div class="col-12 text-center p-3">
                                         <img class="profile-user-img img-fluid" src="{{asset(Storage::url($row->logo))}}" alt="Logo marca producto" id="img-foto">

@@ -13,11 +13,16 @@ class CategoriaProducto extends Model
 
     protected $table = 'categoria_productos';
 
-    protected $fillable = ['marca','especie','logo'];
+    protected $fillable = ['marca','especie','logo', 'especie_id'];
 
     public function productos()
     {
         return $this->hasMany(Producto::class, 'categoria_id');
+    }
+
+    public function miespecie()
+    {
+        return $this->belongsTo(Especy::class, 'especie_id');
     }
 
 

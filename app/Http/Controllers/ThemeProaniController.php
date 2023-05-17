@@ -11,6 +11,7 @@ use App\Models\Sucursale;
 use App\Models\ThemeImg;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Psy\Output\Theme;
 
 class ThemeProaniController extends Controller
@@ -46,7 +47,9 @@ class ThemeProaniController extends Controller
 
     public function knino()
     {
-        $categoria = CategoriaProducto::where('especie','canino')->first();
+        $categoria = CategoriaProducto::with('miespecie')->whereHas('miespecie', function($query){
+            $query->where('name_ruta','knino');
+        })->first();
         $productos = $categoria->productos;
         return view('theme.proanisrl.pages.knino')->with(compact('productos'));
     }
@@ -58,7 +61,9 @@ class ThemeProaniController extends Controller
     }
     public function ktito()
     {
-        $categoria = CategoriaProducto::where('especie','gatuno')->first();
+        $categoria = CategoriaProducto::with('miespecie')->whereHas('miespecie', function($query){
+            $query->where('name_ruta','ktito');
+        })->first();
         $productos = $categoria->productos;
         return view('theme.proanisrl.pages.ktito')->with(compact('productos'));
     }
@@ -71,13 +76,21 @@ class ThemeProaniController extends Controller
 
     public function ganaderia()
     {
-        $categorias = CategoriaProducto::where('especie','Vacuno')->get();
+        $categorias = CategoriaProducto::with('miespecie')->whereHas('miespecie', function($query){
+            $query->where('name_ruta','ganaderia');
+        })->get();
         return view('theme.proanisrl.pages.ganaderia')->with(compact('categorias'));
     }
     public function peces()
     {
-        $categoria = CategoriaProducto::where('especie','Piscicola')->first();
+        // $categoria_especie = DB::table('categoria_productos')
+        //                ->join('especies','categoria_productos.especie_id','=','especies.id')
+        //                ->where('especies.name_ruta','peces')
+        //                ->first();
         // dd($categoria);
+        $categoria = CategoriaProducto::with('miespecie')->whereHas('miespecie', function($query){
+            $query->where('name_ruta','peces');
+        })->first();
         $producto = $categoria->productos()->first();
         // dd($producto);
         return view('theme.proanisrl.pages.peces')->with(compact('producto'));

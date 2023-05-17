@@ -17,9 +17,9 @@
                 @error('marca') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="especie"></label>
-                {!! Form::select('especie', $especies, $especie, ['class'=>'form-control','wire:model'=>'especie', 'id'=>'especie', 'placeholder'=>'Seleccione Especie']) !!}
-                @error('especie') <span class="error text-danger">{{ $message }}</span> @enderror
+                <label for="especie_id"></label>
+                {!! Form::select('especie_id', $especies, $especie_id, ['class'=>'form-control','wire:model'=>'especie_id', 'id'=>'especie_id', 'placeholder'=>'Seleccione Especie']) !!}
+                @error('especie_id') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div wire:loading  wire:target="new_image" class="alert alert-warning alert-dismissible">
                 <h5><i class="icon fas fa-exclamation-triangle"></i> Imagen Cargando!</h5>

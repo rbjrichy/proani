@@ -84,7 +84,7 @@ class ThemeImgs extends Component
         $this->resetInput();
         $this->reset('ruta_img');
 		$this->emit('closeModal');
-		session()->flash('message', 'ThemeImg Successfully created.');
+		session()->flash('message', 'Secci+on creada satisfactoriamente.');
     }
 
     public function edit($id)

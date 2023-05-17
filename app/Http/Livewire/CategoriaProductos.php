@@ -16,7 +16,7 @@ class CategoriaProductos extends Component
     use WithPagination, WithFileUploads;
 
 	protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $marca, $especie, $logo, $new_image, $old_logo;
+    public $selected_id, $keyWord, $marca, $especie, $logo, $new_image, $old_logo, $especie_id;
     public $updateMode = false;
     public $identificador, $especies;
 
@@ -24,16 +24,16 @@ class CategoriaProductos extends Component
     {
         $this->identificador = rand();
         // $this->especies = Dato::where('tipo', 'especie')->get()->pluck('valor','valor');
-        $this->especies = Especy::select('nombre')->groupBy('nombre')->get()->pluck('nombre','nombre');
+        $this->especies = Especy::all()->pluck('nombre','id')->toArray();
     }
 
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
         return view('livewire.categoria_productos.view', [
-            'categoriaProductos' => CategoriaProducto::latest()
+            'categoriaProductos' => CategoriaProducto::with('miespecie')->latest()
 						->orWhere('marca', 'LIKE', $keyWord)
-						->orWhere('especie', 'LIKE', $keyWord)
+						// ->orWhere('especie', 'LIKE', $keyWord)
 						->orWhere('logo', 'LIKE', $keyWord)
 						->paginate(10),
         ]);
@@ -57,6 +57,7 @@ class CategoriaProductos extends Component
             'logo',
             'new_image',
             'old_logo',
+            'especie_id',
         ]);
     }
     private function resetInput()
@@ -92,14 +93,16 @@ class CategoriaProductos extends Component
     {
         $this->validate([
 		'marca' => 'required',
-		'especie' => 'required',
+		'especie' => 'required|min:value:1',
         'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        $nombre_especie = $this->especies[$this->especie];
         $nombreImg = $this->guardarImg($this->logo, 'categorias');
         CategoriaProducto::create([
 			'marca' => $this-> marca,
-			'especie' => $this-> especie,
-			'logo' => $nombreImg
+			'especie' => $nombre_especie,
+			'logo' => $nombreImg,
+            'especie_id' => $this->especie,
         ]);
 
         $this->resetDatos();
@@ -114,8 +117,9 @@ class CategoriaProductos extends Component
         $record = CategoriaProducto::findOrFail($id);
         // dd($record);
         $this->selected_id = $id;
+        $this->especie_id = $record->especie_id;
 		$this->marca = $record-> marca;
-		$this->especie = $record-> especie;
+		// $this->especie = $record-> especie;
 		$this->old_logo = $record-> logo;
         $this->updateMode = true;
     }
@@ -125,10 +129,9 @@ class CategoriaProductos extends Component
 
         $this->validate([
             'marca' => 'required',
-            'especie' => 'required',
-            // 'new_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'especie_id' => 'required|min:1',
+            'new_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        // dd($this->edit_especie);
         if ($this->selected_id) {
             $nombreImg = "";
             if($this->new_image != null){
@@ -137,17 +140,20 @@ class CategoriaProductos extends Component
             }else{
                 $nombreImg = $this->old_logo;
             }
+            $nombre_especie = $this->especies[$this->especie_id];
 			$record = CategoriaProducto::find($this->selected_id);
             $record->update([
 			'marca' => $this->marca,
-			'especie' => $this->especie,
-			'logo' => $nombreImg
+			'especie' => $nombre_especie,
+			'logo' => $nombreImg,
+			'especie_id' => $this->especie_id,
             ]);
 
             $this->resetDatos();
             $this->updateMode = false;
             $this->identificador = rand();
             $this->emit('closeModal');
+            // $this->mount();
 			session()->flash('message', 'Categoria Producto actualizado satisfactoriamente.');
         }
     }
