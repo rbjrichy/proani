@@ -5,7 +5,16 @@
 @section('content_header')
     <h1>Perfil de Usuario {{$user_logeado->name}}</h1>
 @stop
-
+@php
+$config = [
+    'format' => 'DD-MM-YYYY',
+    'dayViewHeaderFormat' => 'MMM YYYY',
+    // 'minDate' => "js:moment().startOf('month')",
+    'maxDate' => "js:moment().endOf('day')",
+    // 'daysOfWeekDisabled' => [0, 6],
+    'locale' => 'es'
+];
+@endphp
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -89,55 +98,76 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Datos Personales</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
                   <div class="tab-pane active" id="settings">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="{{route('cliente.update',[$persona])}}" method="post" >
+                      @csrf
+                      @method('put')
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="ci_nit" class="col-sm-2 col-form-label">CI o NIT</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" class="form-control" name="ci_nit" id="ci_nit" placeholder="CI o NIT"
+                          value="{{ old('ci_nit', $persona->ci_nit ?? '') }}" required>
+                          @error('ci_nit') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                          {{-- error text-danger  --}}
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="text" class="form-control" id="nombres" placeholder="Nombres"
+                          value="{{ old('nombres', $persona->nombres ?? '') }}" required>
+                          @error('nombres') <span class="invalid-feedback">{{ $message }}</span> @enderror
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                          <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos"
+                          value="{{ old('apellidos', $persona->apellidos ?? '') }}">
+                          @error('apellidos') <span class="invalid-feedback">{{ $message }}</span> @enderror
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                          <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Dirección"
+                          value="{{ old('direccion', $persona->direccion ?? '') }}">
+                          @error('direccion') <span class="invalid-feedback">{{ $message }}</span> @enderror
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <label for="telefonos" class="col-sm-2 col-form-label">Teléfonos</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                          <input type="text" class="form-control" name="telefonos" id="telefonos" placeholder="Telefonos"
+                          value="{{ old('telefonos', $persona->telefonos ?? '') }}">
+                          @error('telefonos') <span class="invalid-feedback">{{ $message }}</span> @enderror
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="whatsapp" class="col-sm-2 col-form-label">Whatsapp</label>
+                        <div class="col-sm-10">
+                          <input type="checkbox" name="whatsapp" id="whatsapp" {{($persona->whatsapp)?'checked':''}}> Check solo si el número tiene whatsapp
+                          @error('whatsapp') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                        </div>
+                      </div>
+                      <x-adminlte-input-date name="fecha_nac" label="Fecha Nacimiento" igroup-size="sm" label-class=""
+                        :config="$config" value="{{ old('fecha_nac', (($persona->fecha_nac != '' || !is_null($persona->fecha_nac))?$persona->fecha_nac->format('d-m-Y'):'') ?? '') }}" placeholder="Fecha Nacimiento">
+                        <x-slot name="appendSlot">
+                            <div class="input-group-text bg-dark">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                        </x-slot>
+                      </x-adminlte-input-date>
+                      
+                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button type="submit" class="btn btn-warning">Guardar</button>
                         </div>
                       </div>
                     </form>
@@ -158,7 +188,7 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
-
+@section('plugins.TempusDominusBs4', true)
 @section('js')
     <script>
         $('.custom-file-input').on('change', function(event) {

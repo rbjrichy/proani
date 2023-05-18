@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\SimposioController;
 use App\Http\Controllers\ThemeProaniController;
 use Illuminate\Support\Facades\Artisan;

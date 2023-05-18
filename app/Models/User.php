@@ -49,7 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function adminlte_image()
     {
         // return $this->avatar;
-        return asset(Storage::url('avatar/'.Auth::user()->avatar));
+        if (Auth::user()->avatar != ''){
+            return asset(Storage::url('avatar/'.Auth::user()->avatar));
+        }
+        return asset('img/user_default.png');
     }
 
     public function adminlte_desc()

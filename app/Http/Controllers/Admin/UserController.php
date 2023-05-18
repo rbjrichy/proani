@@ -34,7 +34,8 @@ class UserController extends Controller
     public function profile()
     {
         $user_logeado = User::findOrFail(Auth::id());
-        return view('user.profile')->with(compact('user_logeado'));
+        $persona = $user_logeado->persona;
+        return view('user.profile')->with(compact('user_logeado','persona'));
     }
 
     public function avatarUpdate(Request $request)
