@@ -119,7 +119,7 @@ $config = [
                       <div class="form-group row">
                         <label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="nombres" placeholder="Nombres"
+                          <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombres"
                           value="{{ old('nombres', $persona->nombres ?? '') }}" required>
                           @error('nombres') <span class="invalid-feedback">{{ $message }}</span> @enderror
                         </div>
@@ -151,7 +151,7 @@ $config = [
                       <div class="form-group row">
                         <label for="whatsapp" class="col-sm-2 col-form-label">Whatsapp</label>
                         <div class="col-sm-10">
-                          <input type="checkbox" name="whatsapp" id="whatsapp" {{($persona->whatsapp)?'checked':''}}> Check solo si el número tiene whatsapp
+                          <input type="checkbox" name="whatsapp" id="whatsapp" {{($persona->whatsapp=='1')?'checked="checked"':''}}> Check solo si el número tiene whatsapp
                           @error('whatsapp') <span class="invalid-feedback">{{ $message }}</span> @enderror
                         </div>
                       </div>
@@ -163,8 +163,8 @@ $config = [
                             </div>
                         </x-slot>
                       </x-adminlte-input-date>
-                      
-                      
+
+
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <button type="submit" class="btn btn-warning">Guardar</button>

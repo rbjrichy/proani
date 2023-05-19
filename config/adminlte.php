@@ -242,9 +242,8 @@ return [
         //     'text' => 'search',
         // ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Panel',
+            'route'  => 'panel.index',
         ],
         [
             'text'        => 'Perfil',
@@ -261,7 +260,7 @@ return [
         [
             'text'    => 'Clientes',
             'icon'    => 'fas fa-user-friends',
-            'can'     =>  'admin.cliente.index',
+            'can'     =>  'ver.menu.admin',
             'submenu' => [
                 [
                     'text' => 'Listado',

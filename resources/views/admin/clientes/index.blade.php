@@ -26,12 +26,13 @@
         <tbody>
           @php
               $i=1;
+            //   dd($clientes);
           @endphp
           @foreach ($clientes as $cliente)
           <tr>
             <td>{{$i++}}</td>
             <td>{{$cliente->full_name}}</td>
-            <td>{{$cliente->usuario->email}}</td>
+            <td>{{!is_null($cliente->usuario)?$cliente->usuario->email:''}}</td>
             <td>{{$cliente->telefonos}}</td>
             <td class="text-center">{{$cliente->num_mascotas}}</td>
             <td>

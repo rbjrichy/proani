@@ -53,6 +53,11 @@
                 <li>
                     <a href="{{route('videos')}}"><i class="ion-ios-navigate-outline"></i> <span class="">VIDEOS</span></a>
                 </li>
+                @auth
+                <li>
+                    <a href="{{route('panel.index')}}"><i class="ion-ios-navigate-outline"></i> <span class="">PANEL</span></a>
+                </li>
+                @endauth
                 <li>
                     @auth
                     <a class="dropdown-item" href="{{ route('logout') }}"

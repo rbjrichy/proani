@@ -76,5 +76,3 @@ Route::group([
 });
 
 //Route Hooks - Do not delete//
-
-

@@ -11,7 +11,7 @@ class Persona extends Model
     protected $table = 'personas';
     protected $dates = ['fecha_nac'];
     protected $fillable = [
-        'ci_nit', 'nombres', 'apellidos', 'direccion', 'telefonos', 'fecha_nac'
+        'ci_nit', 'nombres', 'apellidos', 'direccion', 'telefonos', 'fecha_nac', 'whatsapp'
     ];
 
     public function mascotas()
