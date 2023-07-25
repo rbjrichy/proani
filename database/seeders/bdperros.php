@@ -228,7 +228,10 @@ class bdperros extends Seeder
                 "irish"
             ]
         ];
-
+        TipoMascota::create([
+            'especie' => 'perro',
+            'raza' => 'Sin raza',
+        ]);
         foreach ($bdperros as $key => $value) {
             if (count($value)){
                 foreach($value as $item){

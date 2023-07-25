@@ -242,8 +242,8 @@ return [
         //     'text' => 'search',
         // ],
         [
-            'text' => 'Panel',
-            'route'  => 'panel.index',
+            'text' => 'Web',
+            'url'  => '/',
         ],
         [
             'text'        => 'Perfil',

@@ -14,6 +14,11 @@ class bdgatos extends Seeder
      */
     public function run()
     {
+        TipoMascota::create([
+            'especie' => 'gato',
+            'raza' => 'Sin raza',
+
+        ]);
         $data = file_get_contents("https://api.thecatapi.com/v1/breeds");
         $products = json_decode($data, true);
         foreach ($products as $product) {
