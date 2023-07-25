@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{{asset('theme/proanisrl/css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('css/menu_flot.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin_custom.css')}}">
+    <link rel="stylesheet" href="{{asset('css/theme-extra.css')}}">
 
     {{-- Custom Stylesheets --}}
     @yield('custom_css')

@@ -1,0 +1,96 @@
+/** stilos para la correcion de la pagina**/
+
+/** variables de entorno**/
+:root {
+    --color-amarillo-proani: #f9b800;
+    --color-blanco:#fff;
+    --color-negro-proani:#282828;
+
+  }
+
+/** menu header logo y nav **/
+.nav-header-container {
+    background-color: var(--color-amarillo-proani);
+}
+.logo-pro-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-negro-proani);
+}
+
+@media (max-width: 480px) {
+    .nav-header-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo-pro-center img {
+        max-height: 8rem;
+        width: 50%;
+        margin: 2rem auto;
+    }
+}
+
+
+
+@media (min-width: 481px) {
+    .logo-pro-center img {
+        max-height: 8rem;
+        width: 35%;
+        margin: 2rem auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo-pro-center img {
+        max-height: 8rem;
+        width: 70%;
+        margin: 2rem auto;
+    }
+    
+}
+
+.menu-super-fondo{
+    background-color: var(--color-amarillo-proani);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/** boton buscar */
+/* Estilos para el icono (usando FontAwesome como ejemplo) */
+.icon-container i {
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+/* Estilos para ocultar el campo de entrada de texto */
+.icon-container label,
+.icon-container input[type="text"] {
+  display: none;
+  transition: all 3s; /* Transición de 3 segundos para todos los estilos */
+  transform-origin: right center; /* Punto de origen de la transformación */
+}
+
+/* Estilos para mostrar el campo de entrada de texto cuando el icono está activo */
+.icon-container:hover label,
+.icon-container:hover input[type="text"] {
+  display: inline-block;
+  transform: scaleX(1); /* Escalar de derecha a izquierda */
+}
+
+/**lupa buscar */
+.lupa-buscar{
+    height: 3rem;
+    width: 3rem;
+    margin: 0 2rem;
+}
+.icon-container {
+    display: flex;
+    flex-direction: row;
+}
