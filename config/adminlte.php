@@ -282,6 +282,12 @@ return [
                     'can' => 'admin.user.index'
                 ],
                 [
+                    'text' => 'Carrusel',
+                    'route'  => 'admin.carrusel.index',
+                    'icon' => 'fas fa-images',
+                    'can' => 'admin.user.index'
+                ],
+                [
                     'text' => 'Paginas',
                     'route'  => 'admin.pages.index',
                     'icon' => 'far fa-file-alt',

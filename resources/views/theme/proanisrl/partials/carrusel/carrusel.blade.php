@@ -1,6 +1,6 @@
 <div class="contenedor-carrusel">
     <div id="carruselProaniIndicador" class="carousel slide mt-2 bg-green contenedor" data-ride="carousel">
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators" style="bottom: 30px;">
           <li data-target="#carruselProaniIndicador" data-slide-to="0" class="active"></li>
           <li data-target="#carruselProaniIndicador" data-slide-to="1"></li>
           <li data-target="#carruselProaniIndicador" data-slide-to="2"></li>

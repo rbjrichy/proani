@@ -44,3 +44,7 @@ Route::prefix('admin')->name('admin.pages.')->group(function(){
 Route::prefix('admin')->name('admin.videos.')->group(function(){
     Route::view('videos', 'livewire.videos.index')->middleware('auth')->name('index');
 });
+
+Route::prefix('admin')->name('admin.carrusel.')->group(function(){
+    Route::view('carrusel', 'livewire.carrusels.index')->middleware('auth')->name('index');
+});
