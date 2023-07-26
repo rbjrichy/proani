@@ -52,7 +52,7 @@
         width: 70%;
         margin: 2rem auto;
     }
-    
+
 }
 
 .menu-super-fondo{
@@ -60,8 +60,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+@media (min-width: 768px) {
+    .menu-super-fondo{
+        flex-direction: row;
+    }
 
+}
 /** boton buscar */
 /* Estilos para el icono (usando FontAwesome como ejemplo) */
 .icon-container i {
@@ -93,4 +99,55 @@
 .icon-container {
     display: flex;
     flex-direction: row;
+}
+.icon-container{
+    color: #000;
+    font-family: "AvenirBlack";
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    padding: 1rem 0rem;
+}
+/** carrusel **/
+/* .carousel {
+    height: 50rem;
+} */
+.carrusel-alto img{
+    max-height: 50rem;
+}
+
+.link-proani{
+    color: #000;
+    text-decoration: none;
+}
+
+/** logos productos **/
+.contenedor-logos-producto{
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: -19px;
+}
+.imagen-productos{
+    /* URL de la imagen de fondo */
+    background-image: url('../theme/proanisrl/img/carrusel/logos_productos/fondo-logos.png');
+    /* Asegurar que la imagen cubra todo el alto del contenedor */
+    background-size: 100% auto;
+    /* Evitar que la imagen se repita */
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor-carrusel{
+    position: relative;
+}
+.imagen-productos img{
+    width: 50%;
+    height: 50%;
 }

@@ -13,7 +13,7 @@
                     </svg>
                 </div>
                 <p>
-                    <a class="ancla_sec" href="{{route('simposios')}}">
+                    <a class="ancla_sec link-proani" href="{{route('simposios')}}">
                         simposios
                     </a>
                 </p>
@@ -28,7 +28,7 @@
                     </svg>
                 </div>
                 <p>
-                    <a class="ancla_sec" href="{{route('ferias')}}">
+                    <a class="ancla_sec link-proani" href="{{route('ferias')}}">
                         ferias
                     </a>
                 </p>
@@ -43,7 +43,7 @@
                     </svg>
                 </div>
                 <p>
-                    <a class="ancla_sec" href="{{route('adopcion')}}">
+                    <a class="ancla_sec link-proani" href="{{route('adopcion')}}">
                         adopciones
                     </a>
                 </p>
@@ -58,7 +58,7 @@
                     </svg>
                 </div>
                 <p>
-                    <a class="ancla_sec" href="{{route('voluntariado')}}">
+                    <a class="ancla_sec link-proani" href="{{route('voluntariado')}}">
                         voluntariado
                     </a>
                 </p>
