@@ -99,13 +99,19 @@
     //   });
     // });
     $('#carruselProaniIndicador').on('slide.bs.carousel', function (event) {
-        console.log('ingresa a listener');
-        // var slideQueSeOculta = $(event.relatedTarget);
-        // console.log(slideQueSeOculta);
-        // var slideQueSeMuestra = $(event.target);
-        // console.log(slideQueSeMuestra);
-        // var numSlide = $(event);
-        console.log(event.from);
+        var divsAOcultar = $(".contenedor-logos");
+        // console.log(divsAOcultar);
+        // Paso 2: Recorrer cada elemento y agregar la clase "hidden"
+        divsAOcultar.each(function() {
+            $(this).addClass("d-none");
+        });
+        var target = event.relatedTarget
+        var especie = $(target).attr('especie');
+        console.log(especie);
+        var divAMostrar = $("#"+especie);
+        // Paso 2: Quitar la clase "hidden"
+        divAMostrar.removeClass("d-none");
+        
     })
   </script>
 

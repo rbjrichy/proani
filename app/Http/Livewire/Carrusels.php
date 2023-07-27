@@ -83,7 +83,7 @@ class Carrusels extends Component
     public function store()
     {
         $this->validate([
-            'url_imagen' => 'required',
+            'url_imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'orden' => 'required',
             // 'activa' => 'required',
             'especie_id' => 'required',

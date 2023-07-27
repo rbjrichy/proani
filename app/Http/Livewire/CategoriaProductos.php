@@ -93,7 +93,7 @@ class CategoriaProductos extends Component
     {
         $this->validate([
 		'marca' => 'required',
-		'especie' => 'required|min:value:1',
+		'especie' => 'required',
         'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $nombre_especie = $this->especies[$this->especie];

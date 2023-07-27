@@ -5,7 +5,7 @@
                 $active = true;
             @endphp
             @foreach ($carrusel as $indicador)
-                <li data-target="#carruselProaniIndicador" data-slide-to="{{$indicador->orden - 1}}" class="{{($active)?'active':''}}"></li>
+                <li data-target="#carruselProaniIndicador" especie="{{$indicador->miespecie->nombre}}" data-slide-to="{{$indicador->orden - 1}}" class="{{($active)?'active':''}}"></li>
                 @php
                     if ($active) {
                         $active = false;
@@ -18,7 +18,7 @@
                 $active = true;
             @endphp
             @foreach ($carrusel as $imagen)
-            <div class="carousel-item carrusel-alto {{($active)?'active':''}}">
+            <div class="carousel-item carrusel-alto {{($active)?'active':''}}" especie="{{$imagen->miespecie->nombre}}" >
                 <img class="d-block w-100" src="{{asset(Storage::url($imagen->url_imagen))}}" alt="Slide {{$indicador->orden - 1}}">
             </div>
                 @php
@@ -39,7 +39,14 @@
     </div>
     <div class="contenedor-logos-producto">
         <div class="imagen-productos">
-            <img class="" src="{{asset('theme/proanisrl/img/carrusel/logos_productos/logos-perros.png')}}" alt="five slide">
+            @foreach ($logos as $keyEspecie => $itemLogos)
+                {{-- {{$keyEspecie}} --}}
+                <div class="contenedor-logos" id="{{$keyEspecie}}">
+                    @foreach ($itemLogos as $rutaLogo)
+                        <img src="{{asset(Storage::url($rutaLogo))}}" alt="logo producto">
+                    @endforeach
+                </div>
+            @endforeach
         </div>
     </div>
 </div>

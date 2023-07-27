@@ -149,3 +149,11 @@
     width: 50%;
     height: 50%;
 }
+.contenedor-logos{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.contenedor-logos img{
+    max-height: 2.5rem;
+}
