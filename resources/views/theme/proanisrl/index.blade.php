@@ -85,4 +85,28 @@
     }
 
 </script>
+<script>
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   var myCarousel = document.getElementById('carruselProaniIndicador');
+    //   console.log('ingresa en la funcion');
+    //   // Evento que se ejecutará al cambiar de slide en el carrusel
+    //   myCarousel.addEventListener('slid.bs.carousel', function () {
+    //     var activeSlideIndex = Array.from(myCarousel.querySelectorAll('.carousel-item')).indexOf(myCarousel.querySelector('.carousel-item.active'));
+
+    //     // Aquí puedes realizar la acción que desees en cada cambio de slide.
+    //     // Por ejemplo, muestra el segundo menú en la consola con el índice del slide actual:
+    //     console.log('Cambiaste al slide número:', activeSlideIndex);
+    //   });
+    // });
+    $('#carruselProaniIndicador').on('slide.bs.carousel', function (event) {
+        console.log('ingresa a listener');
+        // var slideQueSeOculta = $(event.relatedTarget);
+        // console.log(slideQueSeOculta);
+        // var slideQueSeMuestra = $(event.target);
+        // console.log(slideQueSeMuestra);
+        // var numSlide = $(event);
+        console.log(event.from);
+    })
+  </script>
+
 @endsection

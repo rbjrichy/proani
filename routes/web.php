@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 /** ejecutar comando artisan */
 
-Route::get('artisan-cammand', function(){
-    Artisan::call('storage:link');
-});
+// Route::get('artisan-cammand', function(){
+//     Artisan::call('storage:link');
+// });
 
 Route::get('/', [InicioController::class, "inicio"]);
 

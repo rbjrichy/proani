@@ -1,28 +1,32 @@
 <div class="contenedor-carrusel">
     <div id="carruselProaniIndicador" class="carousel slide mt-2 bg-green contenedor" data-ride="carousel">
         <ol class="carousel-indicators" style="bottom: 30px;">
-          <li data-target="#carruselProaniIndicador" data-slide-to="0" class="active"></li>
-          <li data-target="#carruselProaniIndicador" data-slide-to="1"></li>
-          <li data-target="#carruselProaniIndicador" data-slide-to="2"></li>
-          <li data-target="#carruselProaniIndicador" data-slide-to="3"></li>
-          <li data-target="#carruselProaniIndicador" data-slide-to="4"></li>
+            @php
+                $active = true;
+            @endphp
+            @foreach ($carrusel as $indicador)
+                <li data-target="#carruselProaniIndicador" data-slide-to="{{$indicador->orden - 1}}" class="{{($active)?'active':''}}"></li>
+                @php
+                    if ($active) {
+                        $active = false;
+                    }
+                @endphp
+            @endforeach
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item carrusel-alto active">
-            <img class="d-block w-100" src="{{asset('theme/proanisrl/img/carrusel/perro1.png')}}" alt="First slide">
-          </div>
-          <div class="carousel-item carrusel-alto">
-            <img class="d-block w-100" src="{{asset('theme/proanisrl/img/carrusel/perro2.png')}}" alt="Second slide">
-          </div>
-          <div class="carousel-item carrusel-alto">
-            <img class="d-block w-100" src="{{asset('theme/proanisrl/img/carrusel/perro3.png')}}" alt="Third slide">
-          </div>
-          <div class="carousel-item carrusel-alto">
-            <img class="d-block w-100" src="{{asset('theme/proanisrl/img/carrusel/gato1.png')}}" alt="fourd slide">
-          </div>
-          <div class="carousel-item carrusel-alto">
-            <img class="d-block w-100" src="{{asset('theme/proanisrl/img/carrusel/gato2.png')}}" alt="five slide">
-          </div>
+            @php
+                $active = true;
+            @endphp
+            @foreach ($carrusel as $imagen)
+            <div class="carousel-item carrusel-alto {{($active)?'active':''}}">
+                <img class="d-block w-100" src="{{asset(Storage::url($imagen->url_imagen))}}" alt="Slide {{$indicador->orden - 1}}">
+            </div>
+                @php
+                    if ($active) {
+                        $active = false;
+                    }
+                @endphp
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carruselProaniIndicador" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
