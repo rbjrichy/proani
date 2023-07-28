@@ -39,13 +39,21 @@
     </div>
     <div class="contenedor-logos-producto">
         <div class="imagen-productos">
+            @php
+                $active = true;
+            @endphp
             @foreach ($logos as $keyEspecie => $itemLogos)
                 {{-- {{$keyEspecie}} --}}
-                <div class="contenedor-logos" id="{{$keyEspecie}}">
+                <div class="contenedor-logos {{($active)?'':'d-none'}}" id="{{$keyEspecie}}">
                     @foreach ($itemLogos as $rutaLogo)
-                        <img src="{{asset(Storage::url($rutaLogo))}}" alt="logo producto">
+                        <img class="img-logo" src="{{asset(Storage::url($rutaLogo))}}" alt="logo producto">
                     @endforeach
                 </div>
+                @php
+                    if ($active) {
+                        $active = false;
+                    }
+                @endphp
             @endforeach
         </div>
     </div>

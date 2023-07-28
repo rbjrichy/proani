@@ -111,7 +111,7 @@
         var divAMostrar = $("#"+especie);
         // Paso 2: Quitar la clase "hidden"
         divAMostrar.removeClass("d-none");
-        
+
     })
   </script>
 

@@ -1,5 +1,5 @@
 <section>
-    <div class="slider">
+    <div class="slider" style="padding-top: 10rem">
         <div class="alto_icon_animal slider_icon">
 
             @foreach ($menu as $item)
