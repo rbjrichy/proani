@@ -119,7 +119,6 @@ class CategoriaProductos extends Component
         $this->selected_id = $id;
         $this->especie_id = $record->especie_id;
 		$this->marca = $record-> marca;
-		// $this->especie = $record-> especie;
 		$this->old_logo = $record-> logo;
         $this->updateMode = true;
     }

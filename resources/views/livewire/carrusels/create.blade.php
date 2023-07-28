@@ -21,7 +21,7 @@
                         Espere un momento hasta que la imagen se haya procesado.
                     </div>
                     <div class="col-12 text-center p-3">
-                        @if ($url_imagen!=null)
+                        @if ($url_imagen!=null  && !$updateMode)
                             <img class="profile-user-img img-fluid" src="{{$url_imagen->temporaryUrl()}}" alt="url imagen logo" id="img-foto">
                         @endif
                     </div>

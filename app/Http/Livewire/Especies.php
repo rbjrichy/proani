@@ -72,8 +72,8 @@ class Especies extends Component
 		// 'activo' => 'required',
 		// 'usar_icono' => 'required',
         ]);
-        $activo = isset($this->activo)?1:0;
-        $usar_icono = isset($this->usar_icono)?1:0;
+        $activo = ($this->activo)?1:0;
+        $usar_icono = ($this->usar_icono)?1:0;
         $nombre_icono = '';
         if(isset($this->icono)){
             $nombre_icono = $this->guardarImg($this->icono, 'nemu-animal');

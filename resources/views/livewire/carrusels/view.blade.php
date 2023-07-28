@@ -53,16 +53,16 @@
                                     </div>
 								</td>
 								<td>{{ $row->orden }}</td>
-								<td>{{ $row->activa }}</td>
+								<td>{{ $row->activa?'Si':'No' }}</td>
 								<td>{{ $row->miespecie->nombre }}</td>
 								<td width="90">
 								<div class="btn-group">
 									<button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Actions
+									Acciones
 									</button>
 									<div class="dropdown-menu dropdown-menu-right">
 									<a data-toggle="modal" data-target="#updateModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Editar </a>							 
-									<a class="dropdown-item" onclick="confirm('Confirm Delete Carrusel id {{$row->id}}? \nDeleted Carrusels cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Eliminar </a>   
+									<a class="dropdown-item" onclick="confirm('Confirma que realmente desea eleiminar el archivo? \nUna vez borrado no se podra recuperar!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Eliminar </a>   
 									</div>
 								</div>
 								</td>

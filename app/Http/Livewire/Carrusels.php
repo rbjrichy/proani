@@ -16,7 +16,7 @@ class Carrusels extends Component
 
 	protected $paginationTheme = 'bootstrap';
     public $selected_id, $keyWord, $nombre, $descripcion, $url_imagen, $orden, $activa, $especie_id;
-    public $updateMode = false;
+    public $updateMode = false,$newImage;
     public $especies;
 
     function mount()
@@ -26,24 +26,15 @@ class Carrusels extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-        // $result = Carrusel::with('miespecie')->orderBy('created_at','desc')
-		// 				// ->orWhere('nombre', 'LIKE', $keyWord)
-		// 				// ->orWhere('descripcion', 'LIKE', $keyWord)
-        //                 // ->toSql();
-		// 				// ->orWhere('url_imagen', 'LIKE', $keyWord)
-		// 				// ->orWhere('orden', 'LIKE', $keyWord)
-		// 				// ->orWhere('activa', 'LIKE', $keyWord)
-		// 				// ->orWhere('especie_id', 'LIKE', $keyWord)
-		// 				->paginate(10);
-        // dd($result);
         return view('livewire.carrusels.view', [
-            'carrusels' => Carrusel::with('miespecie')->latest()
+            'carrusels' => Carrusel::with('miespecie')
 						// ->orWhere('nombre', 'LIKE', $keyWord)
 						// ->orWhere('descripcion', 'LIKE', $keyWord)
 						// ->orWhere('url_imagen', 'LIKE', $keyWord)
 						// ->orWhere('orden', 'LIKE', $keyWord)
 						// ->orWhere('activa', 'LIKE', $keyWord)
 						// ->orWhere('especie_id', 'LIKE', $keyWord)
+                        ->orderBy('orden', 'desc')
 						->paginate(10),
         ]);
     }
@@ -130,19 +121,28 @@ class Carrusels extends Component
         ]);
 
         if ($this->selected_id) {
+            $nombreImg = "";
+            if($this->newImage != null){
+                $nombreImg = $this->guardarImg($this->newImage, 'carrusel');
+                $this->borrarImagen($this->url_imagen);
+            }else{
+                $nombreImg = $this->url_imagen;
+            }
+            $activo = ($this->activa)?1:0;
+            // dd($activo);
 			$record = Carrusel::find($this->selected_id);
             $record->update([ 
 			'nombre' => $this-> nombre,
 			'descripcion' => $this-> descripcion,
-			'url_imagen' => $this-> url_imagen,
+			'url_imagen' => $nombreImg,
 			'orden' => $this-> orden,
-			'activa' => $this-> activa,
+			'activa' => $activo,
 			'especie_id' => $this-> especie_id
             ]);
 
             $this->resetInput();
             $this->updateMode = false;
-			session()->flash('message', 'Carrusel Successfully updated.');
+			session()->flash('message', 'Datos actualizados correctamente.');
         }
     }
 
@@ -150,6 +150,7 @@ class Carrusels extends Component
     {
         if ($id) {
             $record = Carrusel::where('id', $id);
+            $this->borrarImagen($record->logo);
             $record->delete();
         }
     }
