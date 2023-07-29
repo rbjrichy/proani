@@ -25,19 +25,15 @@
                 <h5><i class="icon fas fa-exclamation-triangle"></i> Imagen Cargando!</h5>
                 Espere un momento hasta que la imagen se haya procesado.
             </div>
-            <div class="col-12 text-center p-3">
-                @if ($new_image)
+            <div class="col-12 text-center p-3 aqui">
+                @if ($new_image != null && $updateMode)
                     <img class="profile-user-img img-fluid" src="{{$new_image->temporaryUrl()}}" alt="Logo marca producto" id="new_image">
-                @else
-                    <img class="profile-user-img img-fluid" src="{{asset(Storage::url($old_logo))}}" alt="Logo marca producto" id="img-foto">
                 @endif
-
             </div>
             <div class="form-group">
                 <div class="custom-file">
                     <input wire:model="new_image" type="file" class="custom-file-input" id="customFile{{$identificador}}" name="new_image" accept="image/*">
                     <label wire:ignore class="custom-file-label" for="customFile">Cargar logo</label>
-                    <input wire:model="logo" type="hidden">
                 </div>
                 @error('new_image')
                 <div class="text-danger small m-1">{{ $message }}</div>
