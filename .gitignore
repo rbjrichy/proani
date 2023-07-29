@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,laravel,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,laravel,node
 
+##ignorar el archivo inde.php ya que lo tengo configurado en el servidor*/
+public/index.php
+
 ### Laravel ###
 /vendor/
 node_modules/
