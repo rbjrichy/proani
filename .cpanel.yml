@@ -4,3 +4,25 @@ deployment:
     - export DEPLOYPATH=/home/proandaq/public_html/
     #- /bin/rsync -av --exclude 'index.php' public/ $DEPLOYPATH
     - /bin/cp -R ./public/* $DEPLOYPATH
+    # Copiar los archivos y carpetas en la carpeta 'proani_prod'
+    - export DEPLOYPATHPROD=/home/proandaq/proani_prod
+    - /bin/cp -R ./app $DEPLOYPATHPROD
+    - /bin/cp -R ./bootstrap $DEPLOYPATHPROD
+    - /bin/cp -R ./config $DEPLOYPATHPROD
+    - /bin/cp -R ./resources $DEPLOYPATHPROD
+    - /bin/cp -R ./routes $DEPLOYPATHPROD
+    #copiar archivos de la taiz
+    - /bin/cp ./.editorconfig $DEPLOYPATHPROD
+    - /bin/cp ./.gitattributes $DEPLOYPATHPROD
+    - /bin/cp ./.gitignore $DEPLOYPATHPROD
+    - /bin/cp ./.styleci.yml $DEPLOYPATHPROD
+    - /bin/cp ./README.md $DEPLOYPATHPROD
+    - /bin/cp ./artisan $DEPLOYPATHPROD
+    - /bin/cp ./composer.json $DEPLOYPATHPROD
+    - /bin/cp ./composer.lock $DEPLOYPATHPROD
+    - /bin/cp ./package-lock.json $DEPLOYPATHPROD
+    - /bin/cp ./package.json $DEPLOYPATHPROD
+    - /bin/cp ./phpunit.xml $DEPLOYPATHPROD
+    - /bin/cp ./server.php $DEPLOYPATHPROD
+    - /bin/cp ./tailwind.config.js $DEPLOYPATHPROD
+    - /bin/cp ./webpack.mix.js $DEPLOYPATHPROD
