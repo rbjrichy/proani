@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 //     Artisan::call('storage:link');
 // });
 
-Route::get('/', [InicioController::class, "inicio"]);
+Route::get('/', [InicioController::class, "inicio"])->name('inicio');
 
 require __DIR__.'/auth.php';
 
@@ -72,6 +72,7 @@ Route::group([
     Route::get('contacto', [ThemeProaniController::class, 'contacto'])->name('contacto');
     Route::get('guia/alimentaria', [ThemeProaniController::class, 'guia_alimentaria'])->name('guia_alimentaria');
     Route::get('generico/{nombre}', [ThemeProaniController::class, 'generico'])->name('generico');
+    Route::get('productos', [ThemeProaniController::class, 'verProductos'])->name('ver.productos');
 
 });
 

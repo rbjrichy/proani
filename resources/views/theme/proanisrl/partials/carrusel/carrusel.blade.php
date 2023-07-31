@@ -45,8 +45,10 @@
             @foreach ($logos as $keyEspecie => $itemLogos)
                 {{-- {{$keyEspecie}} --}}
                 <div class="contenedor-logos {{($active)?'':'d-none'}}" id="{{$keyEspecie}}">
-                    @foreach ($itemLogos as $rutaLogo)
-                        <img class="img-logo" src="{{asset(Storage::url($rutaLogo))}}" alt="logo producto">
+                    @foreach ($itemLogos['listaLogos'] as $rutaLogo)
+                        <a href="{{route($especiesRutas[$itemLogos['especie_id']],[$keyEspecie])}}">
+                            <img class="img-logo" src="{{asset(Storage::url($rutaLogo))}}" alt="logo producto">
+                        </a>
                     @endforeach
                 </div>
                 @php

@@ -20,6 +20,14 @@ class CategoriaProducto extends Model
         return $this->hasMany(Producto::class, 'categoria_id');
     }
 
+    public function primerProducto(){
+        $producto = $this->productos()->first();
+        if($producto){
+            return $producto->id;
+        }
+        return 0;
+    }
+
     public function miespecie()
     {
         return $this->belongsTo(Especy::class, 'especie_id');

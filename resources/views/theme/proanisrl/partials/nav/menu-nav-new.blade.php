@@ -4,9 +4,9 @@
   </div>
   <div class="box menu-super-fondo">
     <nav class="nav-principal">
-      <a class="nav-link" href="{{route('quienessomos')}}">Home</a>
+      <a class="nav-link" href="{{route('inicio')}}">Home</a>
       <a class="nav-link" href="{{route('quienessomos')}}">Quienes Somos</a>
-      <a class="nav-link" href="{{route('guia_alimentaria')}}">Productos</a>
+      <a class="nav-link" href="{{route('ver.productos')}}">Productos</a>
       <a class="nav-link" href="{{route('videos')}}">Noticias</a>
       <a class="nav-link" href="{{route('contacto')}}">Contáctanos</a>
     </nav>

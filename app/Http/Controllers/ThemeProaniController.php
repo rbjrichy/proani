@@ -132,4 +132,18 @@ class ThemeProaniController extends Controller
         }
         return view('theme.proanisrl.pages.generico')->with(compact('producto','especie'));
     }
+
+    function verProductos() {
+        $categoriaProductos = CategoriaProducto::orderBy('especie_id')->get();
+        // $categoriaProductos = DB::table('categoria_productos as cp')
+        //                         ->join('productos as p', 'cp.id', '=', 'p.categoria_id')
+        //                         ->join('especies as e', 'cp.especie_id', '=', 'e.id')
+        //                         ->select('cp.id', 'cp.especie_id', 'cp.especie', 'cp.marca', 'cp.logo', 'p.id as producto_id')
+        //                         ->where('e.activo', '=', 1)
+        //                         ->get();
+        // $p = $categoriaProductos->first();
+        // dd($p->primerProducto());
+        $especiesRutas = Especy::select('id','name_ruta')->pluck('name_ruta', 'id')->toArray();
+        return view('theme.proanisrl.pages.productos.ver_productos')->with(compact('categoriaProductos', 'especiesRutas'));
+    }
 }
