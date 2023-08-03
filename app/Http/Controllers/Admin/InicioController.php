@@ -14,8 +14,7 @@ class InicioController extends Controller
     public function inicio()
     {
         $carrusel = Carrusel::with('miespecie')->where('activa','1')->get();
-        $especies = Especy::where('activo', '1')
-                          ->join('carrusel', 'especies.id', '=', 'carrusel.especie_id')
+        $especies = Especy::join('carrusel', 'especies.id', '=', 'carrusel.especie_id')
                           ->select('especies.id','especies.nombre')
                           ->pluck('id','nombre')->toArray();
         $logos = [];

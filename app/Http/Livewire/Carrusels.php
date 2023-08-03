@@ -149,8 +149,8 @@ class Carrusels extends Component
     public function destroy($id)
     {
         if ($id) {
-            $record = Carrusel::where('id', $id);
-            $this->borrarImagen($record->logo);
+            $record = Carrusel::where('id', $id)->first();
+            $this->borrarImagen($record->url_imagen);
             $record->delete();
         }
     }
