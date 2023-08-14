@@ -47,7 +47,7 @@
 								<td>{{ $row->miespecie->nombre }}</td>
 								<td>
                                     <div class="col-12 text-center p-3">
-                                        <img class="profile-user-img img-fluid" src="{{asset(Storage::url($row->logo))}}" alt="Logo marca producto" id="img-foto">
+                                        <img class="profile-user-img img-fluid" style="background-color: gray" src="{{asset(Storage::url($row->logo))}}" alt="Logo marca producto" id="img-foto">
                                     </div>
                                 </td>
 								<td width="90">
