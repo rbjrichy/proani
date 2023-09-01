@@ -24,7 +24,6 @@
     {{-- navegador superior --}}
     @include('theme.proanisrl.partials.nav.menu-nav-new')
 
-
     @include('theme.proanisrl.partials.carrusel.carrusel')
 
 

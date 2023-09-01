@@ -271,6 +271,38 @@ return [
             ],
         ],
         [
+            'text'    => 'BLOG',
+            'icon'    => 'fas fa-user-cog',
+            'can'     =>  'ver.menu.admin',
+            'submenu' => [
+                [
+                    'text' => 'Categorias',
+                    'route'  => 'admin.categories.index',
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'active' => ['admin/categories*'],
+                    'can' => 'admin.user.index'
+                ],
+                [
+                    'text' => 'Etiquetas',
+                    'route'  => 'admin.tags.index',
+                    'icon' => 'far fa-fw fa-bookmark',
+                    'active' => ['admin/tags*'],
+                    'can' => 'admin.user.index'
+                ],
+            ],
+        ],
+        ['header' => 'OPCIONES DE BLOG'],
+        [
+            'text'       => 'Lista de post',
+            'route'      => 'admin.posts.index',
+            'icon'      => 'fas fa-fw fa-clipboard',
+        ],
+        [
+            'text'       => 'Crear nuevo post',
+            'route'      => 'admin.posts.create',
+            'icon'      => 'fas fa-fw fa-file',
+        ],
+        [
             'text'    => 'Administrador',
             'icon'    => 'fas fa-user-cog',
             'can'     =>  'ver.menu.admin',
@@ -337,22 +369,7 @@ return [
                 ],
             ],
         ],
-        // ['header' => 'labels'],
-        // [
-        //     'text'       => 'important',
-        //     'icon_color' => 'red',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url'        => '#',
-        // ],
+
     ],
 
     /*

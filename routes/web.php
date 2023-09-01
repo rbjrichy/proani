@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Blog\PostController;
 use App\Http\Controllers\SimposioController;
 use App\Http\Controllers\ThemeProaniController;
 use Illuminate\Support\Facades\Artisan;
@@ -76,4 +77,12 @@ Route::group([
 
 });
 
-//Route Hooks - Do not delete//
+//Routes para el blog vista web//
+Route::group([
+    'middleware' => ['web'],
+], function () {
+    Route::get('posts', [PostController::class, 'index'])->name('web.post.index');
+    Route::get('posts/{post}', [PostController::class, 'show'])->name('web.post.show');
+    Route::get('category/{category}', [PostController::class, 'category'])->name('web.post.category');
+    Route::get('tag/{tag}', [PostController::class, 'tag'])->name('web.post.tag');
+});

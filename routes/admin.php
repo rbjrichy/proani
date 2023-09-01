@@ -1,9 +1,12 @@
 <?php
 /** rutas para el administrador y el supervisor */
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ClienteAdminController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\EventoInfoController;
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
@@ -47,4 +50,11 @@ Route::prefix('admin')->name('admin.videos.')->group(function(){
 
 Route::prefix('admin')->name('admin.carrusel.')->group(function(){
     Route::view('carrusel', 'livewire.carrusels.index')->middleware('auth')->name('index');
+});
+
+//routes para blog
+Route::prefix('admin')->middleware('auth')->group(function(){
+    Route::resource('categories', CategoryController::class)->names('admin.categories');
+    Route::resource('tags', TagController::class)->names('admin.tags');
+    Route::resource('posts', PostController::class)->names('admin.posts');
 });
