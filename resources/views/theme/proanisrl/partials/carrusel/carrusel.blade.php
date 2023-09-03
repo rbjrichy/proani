@@ -20,6 +20,10 @@
             @foreach ($carrusel as $imagen)
             <div class="carousel-item carrusel-alto {{($active)?'active':''}}" especie="{{$imagen->miespecie->nombre}}" >
                 <img class="d-block w-100" src="{{asset(Storage::url($imagen->url_imagen))}}" alt="Slide {{$indicador->orden - 1}}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="font-size: 2.6rem;">{{$imagen->nombre??''}}</h1>
+                    <p class="text-muted" style="background-color: rgba(255, 255, 255, 0.5);">{{$imagen->descripcion??''}}</p>
+                </div>
             </div>
                 @php
                     if ($active) {

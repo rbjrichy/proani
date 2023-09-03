@@ -12,7 +12,7 @@
 <div class="contenedor bg_color_ktito">
     <header class="header contenedor">
       <div class="logo_proani">
-        <a href="./">
+        <a href="{{asset('/')}}">
           <img src="{{asset('theme/proanisrl/img/knino/logo_proani.png')}}" alt="logo proani" />
         </a>
       </div>

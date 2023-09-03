@@ -8,7 +8,7 @@ class SelectDepartamento extends Component
 {
     public $departamentos, $departamento;
 
-    public function enviarMensaje()
+    public function seleccionarDepartamento()
     {
         $this->emit('selectSucursal', $this->departamento);
     }

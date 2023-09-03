@@ -11,11 +11,19 @@
            <div class="modal-body">
 				<form>
                     <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">@error('nombre') <span class="error text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <input wire:model="descripcion" type="text" class="form-control" id="descripcion" placeholder="Descripcion">@error('descripcion') <span class="error text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="especie">Seleccionar Especie</label>
                         {!! Form::select('especie', $especies, null, ['class'=>'form-control','wire:model'=>'especie_id', 'id'=>'especie_id', 'placeholder'=>'Especie', 'required'=>'required']) !!}
                         @error('especie_id') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-                    
+
                     <div wire:loading  wire:target="url_imagen" class="alert alert-warning alert-dismissible">
                         <h5><i class="icon fas fa-exclamation-triangle"></i> Imagen Cargando!</h5>
                         Espere un momento hasta que la imagen se haya procesado.
@@ -26,7 +34,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <!-- <label for="customFile">Custom File</label> -->
+                        <label for="customFile">Imágen Carrusel</label>
                         <div class="custom-file">
                             <input wire:model="url_imagen" type="file" class="custom-file-input" id="customFile" name="url_imagen" accept="image/*" required>
                             <label wire:ignore class="custom-file-label" for="customFile">Cargar url_imagen</label>
@@ -36,18 +44,11 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="orden"></label>
+                        <label for="orden">Orden</label>
                         <input wire:model="orden" type="number" class="form-control" id="orden" placeholder="Orden" required>
                         @error('orden') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="nombre"></label>
-                        <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">@error('nombre') <span class="error text-danger">{{ $message }}</span> @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="descripcion"></label>
-                        <input wire:model="descripcion" type="text" class="form-control" id="descripcion" placeholder="Descripcion">@error('descripcion') <span class="error text-danger">{{ $message }}</span> @enderror
-                    </div>            
+
                 </form>
             </div>
             <div class="modal-footer">

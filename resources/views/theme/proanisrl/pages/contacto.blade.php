@@ -72,24 +72,38 @@
 <!-- End footer -->
 @endsection
 @section('custom_js')
-<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
- integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
- crossorigin=""></script>
- <script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+<script>
     var direccion_sucursal = 'Oficina central';
     var coordenadas = [-17.851, -63.254];
     var nombre_sucursal = 'Oficinas de ProAni SRL';
- </script>
-    <script src="{{asset('theme/proanisrl/js/maps.js')}}"></script>
+    var datos = {
+        direccion_sucursal: direccion_sucursal ,
+        coordenadas: coordenadas.join(','),
+        nombre_sucursal: nombre_sucursal
+    }
+</script>
+<script src="{{asset('theme/proanisrl/js/maps.js')}}"></script>
 <script>
+    document.body.onload = function() {
+
+       Livewire.emit('mostrarMapa', datos);
+    }
+
     Livewire.on('mostrarMapa', datos => {
         coordenadas = datos.coordenadas.split(',');
         nombre_sucursal = datos.nombre_sucursal;
         direccion_sucursal = datos.direccion;
         // limpiarMarcadores(map);
+        // alert(data);
         aniadir_marcador(map, coordenadas, nombre_sucursal, direccion_sucursal);
         centrarMarcador(map,coordenadas);
+
     });
+
     Livewire.on('abrirLink', link => {
         var win = window.open(link, '_blank');
         win.focus();

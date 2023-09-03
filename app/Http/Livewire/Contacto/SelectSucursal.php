@@ -10,6 +10,14 @@ class SelectSucursal extends Component
     public $sucursales, $sucursal_id;
     protected $listeners = ['selectSucursal' => 'buscarSucursales'];
 
+    function mount(){
+        // $this->buscarSucursales('Santa Cruz');
+        // if(count($this->sucursales)>0){
+        //     $sucursal = $this->sucursales->first();
+        //     $this->sucursal_id = $sucursal->id;
+        //     $this->buscaSucursal();
+        // }
+    }
 
     public function buscarSucursales($departamento)
     {
