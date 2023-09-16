@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
@@ -61,35 +62,42 @@ class RegisteredUserController extends Controller
 
     public function registrarUsuario(Request $request)
     {
-        $request['name'] = $request->get('nombres');
-        $request->validate([
-            'nombres' => ['required', 'string', 'max:255'],
-            'apellidos' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        try {
+            DB::beginTransaction();
+            $request['name'] = $request->get('nombres');
+            $request->validate([
+                'nombres' => ['required', 'string', 'max:255'],
+                'apellidos' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
-        /** asignar rol al usuario creado por la web, siempre sera cliente */
-        $user->assignRole('Cliente');
-        event(new Registered($user));
-        Auth::login($user);
-        /** crear persona */
-        $persona = Persona::create([
-            'nombres' => $request->get('name'),
-            'apellidos' => $request->get('apellidos'),
-            'telefono' => $request->get('telefono'),
-            'whatsapp' => $request->get('whatsapp'),
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $request->password,
+            ]);
+            /** asignar rol al usuario creado por la web, siempre sera cliente */
+            $user->assignRole('Cliente');
+            event(new Registered($user));
+            Auth::login($user);
+            /** crear persona */
+            $persona = Persona::create([
+                'nombres' => $request->get('name'),
+                'apellidos' => $request->get('apellidos'),
+                'telefono' => $request->get('telefono'),
+                'whatsapp' => $request->get('whatsapp'),
 
-        ]);
-        $user->persona_id = $persona->id;
-        $user->save();
-
-        return redirect(RouteServiceProvider::HOME);
+            ]);
+            $user->persona_id = $persona->id;
+            $user->save();
+            DB::commit();
+            return redirect(RouteServiceProvider::HOME);
+        } catch (\Exception $e) {
+            //throw $th;
+            DB::rollback();
+            return back()->with('error', 'Hubo un error al guardar los datos');
+        }
     }
 }

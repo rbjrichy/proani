@@ -17,6 +17,11 @@
     <main class="contenedor bg-white guia-gato">
         <div class="contenedor-gato">
             <div class="content-formulario">
+                @if(session('error'))
+                    <div style="padding: 2rem; background-color: #f92e2ebf; ">
+                        {{session('error')}}
+                    </div>
+                @endif
                 @if (Auth::user())
                 <div class="campo">
                     <span class="titulo-guia">Bienvenido</span>

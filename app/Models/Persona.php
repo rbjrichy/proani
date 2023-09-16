@@ -31,4 +31,9 @@ class Persona extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function setWhatsappAttribute($value)
+    {
+        $this->attributes['whatsapp'] = $value === 'on' ? 1 : 0;
+    }
 }
