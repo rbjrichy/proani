@@ -11,6 +11,10 @@ class EnviarConsulta extends Component
     public $sucursal,$especie,$edad,$medida,$fases,$consulta,$mensaje,$link;
     protected $listeners = ['enviarConsulta'];
 
+    function mount(){
+        $this->sucursal = Sucursale::with('persona')->where('departamento', 'Santa Cruz')->first();
+    }
+
     public function render()
     {
         return view('livewire.contacto.enviar-consulta');
@@ -20,6 +24,7 @@ class EnviarConsulta extends Component
     {
         $this->sucursal = Sucursale::with('persona')->findOrFail($sucursal_id);
     }
+
     public function enviarWhatsapp()
     {
         $this->mensaje = 'especie: '. $this->especie. ' edad: '.$this->edad.' medida: '.$this->medida. ' fases: ' .$this->fases.' Consulta: '.$this->consulta;

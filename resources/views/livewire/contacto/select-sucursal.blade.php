@@ -5,7 +5,7 @@
             <ul>
                 @foreach ($sucursales as $fila)
                 <li>
-                    <input type="radio" wire:model="sucursal_id" wire:click="buscaSucursal()" name="sucursal" id="sucurusal" value="{{$fila->id}}">
+                    <input type="radio" wire:model="sucursal_id" wire:click="buscaSucursal()" name="sucursal" value="{{$fila->id}}">
                     <span>{{$fila->nombre_sucursal}}</span>
                     <dl>
                         <dt>{{$fila->persona->full_name}} </dt>

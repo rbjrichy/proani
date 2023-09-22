@@ -11,12 +11,13 @@ class SelectSucursal extends Component
     protected $listeners = ['selectSucursal' => 'buscarSucursales'];
 
     function mount(){
-        // $this->buscarSucursales('Santa Cruz');
-        // if(count($this->sucursales)>0){
-        //     $sucursal = $this->sucursales->first();
-        //     $this->sucursal_id = $sucursal->id;
-        //     $this->buscaSucursal();
-        // }
+        $this->buscarSucursales('Santa Cruz');
+        if(count($this->sucursales)>0){
+            $sucursal = $this->sucursales->first();
+            $this->sucursal_id = $sucursal->id;
+            $this->buscaSucursal();
+            // dd("emit sucursal");
+        }
     }
 
     public function buscarSucursales($departamento)
@@ -43,6 +44,8 @@ class SelectSucursal extends Component
 
     public function render()
     {
+        $this->buscaSucursal();
+
         return view('livewire.contacto.select-sucursal');
     }
 }

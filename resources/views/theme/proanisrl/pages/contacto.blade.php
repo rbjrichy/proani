@@ -77,13 +77,30 @@
     crossorigin=""></script>
 
 <script>
+    const sucursales = @json($sucursales);
+    // console.log(Object.keys(sucursales).length);
+    // console.log(sucursales)
     var direccion_sucursal = 'Oficina central';
     var coordenadas = [-17.851, -63.254];
     var nombre_sucursal = 'Oficinas de ProAni SRL';
     var datos = {
-        direccion_sucursal: direccion_sucursal ,
-        coordenadas: coordenadas.join(','),
-        nombre_sucursal: nombre_sucursal
+            direccion_sucursal: direccion_sucursal ,
+            coordenadas: coordenadas.join(','),
+            nombre_sucursal: nombre_sucursal
+        }
+    if (Object.keys(sucursales).length > 0) {
+        var sucursal = sucursales[0];
+        datos = {
+            direccion_sucursal: sucursal.direccion ,
+            coordenadas: sucursal.coordenadas,
+            nombre_sucursal: sucursal.nombre_sucursal
+        }
+
+        var radioBtnSucursales = document.getElementsByName('sucursal');
+        var radioSelected = radioBtnSucursales[0];
+        radioSelected.checked = true;
+        radioSelected.dispatchEvent(new Event('change'));
+        // console.log(radioBtnSucursales[0]);
     }
 </script>
 <script src="{{asset('theme/proanisrl/js/maps.js')}}"></script>
@@ -97,8 +114,6 @@
         coordenadas = datos.coordenadas.split(',');
         nombre_sucursal = datos.nombre_sucursal;
         direccion_sucursal = datos.direccion;
-        // limpiarMarcadores(map);
-        // alert(data);
         aniadir_marcador(map, coordenadas, nombre_sucursal, direccion_sucursal);
         centrarMarcador(map,coordenadas);
 

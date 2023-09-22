@@ -18,5 +18,5 @@
             </div>
         </div>
     </div>
-    <p class="copyright">© 2023 Proani - Todos los derechos reservados.</p>
+    <p class="copyright {{isset($cls_bg)?$cls_bg:'viene aca'}}">© 2023 Proani - Todos los derechos reservados.</p>
 </footer>

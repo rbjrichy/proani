@@ -6,7 +6,7 @@
         }
     @endphp
     <div class="producto-descripcion">
-        <p class="texto-peces">{{$producto->descripcion}}</p>
+        <p class="{{($classTitulo != '')?$classTitulo:'texto-peces'}}">{{$producto->descripcion}}</p>
     </div>
     <div class="detalle-producto">
         <div class="flechaizq-slice">

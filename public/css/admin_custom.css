@@ -217,3 +217,34 @@
     gap: 10px;
     align-items: flex-end;
   }
+/** colores text **/
+.text-white {
+    color:#fff !important;
+}
+
+.a-back-white {
+    color: #fff;
+}
+
+.a-back-white:hover {
+    color: rgb(249, 184, 0);
+}
+/* #btn_icon_white{
+    fill:#fff;
+}
+#btn_icon_white:hover{
+    fill:rgb(249, 184, 0);
+} */
+#btn-icon-white{
+    fill: #fff;
+    &:hover{
+    fill: rgb(249, 184, 0);
+    }
+}
+
+.title-product {
+    margin-top: 5rem;
+    color: white;
+    font-size: 1.6rem;
+    /* font-weight: bold; */
+}

@@ -9,6 +9,12 @@ class CarruselProducto extends Component
 {
     public $producto, $ruta_flecha;
     public $link_pre, $link_pos;
+    public $classTitulo;
+
+    public function mount($className='') {
+        $this->classTitulo = $className;
+    }
+
     public function render()
     {
         $this->buscarLinks();
